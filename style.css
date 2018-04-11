@@ -1,0 +1,122 @@
+/* Giving the body the specified background color, adding font sizes for the h1 and h3 elements we'll be using */
+body {
+  background: #f0f0f5;
+  margin-right: 40px;
+  margin-left: 100px;
+  
+}
+
+
+#sum-text {
+    font-size: 58px;
+    color: #059E8F;
+	font-family: serif;
+	margin: 0px;
+	text-align: left-center;
+	
+}
+
+#vis-text {
+	font-size: 38px;
+    color: #059E8F;
+	font-family: serif;
+	text-align: left-center;	
+}
+#comp-text {
+	font-size: 25px;
+    color: #059E8F;
+	font-family: serif;
+	text-align: left-center;	
+}
+
+#highlight-border {
+	padding:1px;
+	border:1px solid #059E8F;
+}
+
+h2 {
+  font-size: 30em;
+  color: #059E8F;
+}
+
+/* Giving our navbar some padding and a background color */
+
+.navbar {
+  padding: 0px;
+  margin-left: 0px;
+  
+}
+.navbar-text {
+  background: #059E8F;
+  height : 100%;
+  font-size: 25pt;
+  font-weight: bold;
+  
+}
+#lat-text {
+	color: #fff;
+	font-family: serif;
+	padding: 10px;
+}
+
+	
+.navbar li p {
+   width: 650px;  
+}
+
+/* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+.navbar li {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Getting rid of the default link styles here */
+.navbar li a {
+color: #000;
+text-decoration: none;
+}
+
+/* Styling the header, giving it a height, a background color, and some top padding */
+.header {
+  height: 200px;
+  padding-top: 20px;
+  background: #cdcdcd;
+}
+
+/* Centering our h1 tag inside our header, giving it a little padding, removing its margin */
+.header h1 {
+  padding: 60px;
+  margin: 0;
+  color: #000;
+  text-align: center;
+}
+
+/* Giving the .para element size, line height and color */
+.para {
+  font-size : 18pt; 
+  line-height: 1.8; 
+  color: gray;
+  
+  
+}
+.mycontainer {
+    position: relative;
+    text-align: center;
+	max-width: 480px;
+	width: 90%;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.centered {
+    position: absolute;
+    top: -3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    
+

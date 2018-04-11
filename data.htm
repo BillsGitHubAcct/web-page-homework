@@ -1,0 +1,5568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperature Visualization Detail</title>
+  <link rel="stylesheet" href="reset.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>  
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-text" id="lat-text">Latitude</p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="index.html">Landing</a></li>
+	  </ul>	  
+	  <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="temp.html">Temperature vs Latitude</a></li>
+            <li><a href="humidity.html">Humidity vs Latitude</a></li>
+            <li><a href="cloud.html">Cloudiness vs Latitude</a></li>
+            <li><a href="wind.html">Wind Speed vs Latitude</a></li>
+          </ul>
+        </li>
+		<li><a href="compare.html">Comparison</a></li>
+		<li><a href="data.htm">Data</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h1 id="vis-text">Data</h1>
+</br>
+</br>
+<p>The following table includes all of the data used for plotting this project</p>
+</br>
+</br>
+<table class="table table-bordered table-hover table-condensed" border="1">
+<thead><tr><th title="Field #1">City</th>
+<th title="Field #2">Cloudiness</th>
+<th title="Field #3">Country</th>
+<th title="Field #4">Date</th>
+<th title="Field #5">Humidity</th>
+<th title="Field #6">Lat</th>
+<th title="Field #7">Lng</th>
+<th title="Field #8">Max Temp</th>
+<th title="Field #9">Wind Speed</th>
+</tr></thead>
+<tbody><tr>
+<td>Mahebourg</td>
+<td align="right">20</td>
+<td>MU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">66</td>
+<td align="right">-20.41</td>
+<td align="right">57.7</td>
+<td align="right">84.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Castro</td>
+<td align="right">76</td>
+<td>CL</td>
+<td>4/11/2018 6:51</td>
+<td align="right">100</td>
+<td align="right">-42.48</td>
+<td align="right">-73.76</td>
+<td align="right">43.76</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Hithadhoo</td>
+<td align="right">80</td>
+<td>MV</td>
+<td>4/11/2018 6:51</td>
+<td align="right">100</td>
+<td align="right">-0.6</td>
+<td align="right">73.08</td>
+<td align="right">82.91</td>
+<td align="right">12.24</td>
+</tr>
+<tr>
+<td>Ribeira Grande</td>
+<td align="right">75</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">88</td>
+<td align="right">38.52</td>
+<td align="right">-28.7</td>
+<td align="right">62.6</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Sinop</td>
+<td align="right">90</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">93</td>
+<td align="right">42.03</td>
+<td align="right">35.15</td>
+<td align="right">48.2</td>
+<td align="right">1.83</td>
+</tr>
+<tr>
+<td>Ust-Kulom</td>
+<td align="right">80</td>
+<td>RU</td>
+<td>4/11/2018 6:51</td>
+<td align="right">63</td>
+<td align="right">61.69</td>
+<td align="right">53.69</td>
+<td align="right">27.56</td>
+<td align="right">12.91</td>
+</tr>
+<tr>
+<td>Kannod</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:51</td>
+<td align="right">33</td>
+<td align="right">22.67</td>
+<td align="right">76.74</td>
+<td align="right">94.79</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Ushuaia</td>
+<td align="right">75</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">64</td>
+<td align="right">-54.81</td>
+<td align="right">-68.31</td>
+<td align="right">39.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Lebyazhye</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">55</td>
+<td align="right">59.96</td>
+<td align="right">29.42</td>
+<td align="right">35.6</td>
+<td align="right">8.95</td>
+</tr>
+<tr>
+<td>Hermanus</td>
+<td align="right">0</td>
+<td>ZA</td>
+<td>4/11/2018 6:51</td>
+<td align="right">77</td>
+<td align="right">-34.42</td>
+<td align="right">19.24</td>
+<td align="right">53.21</td>
+<td align="right">8.55</td>
+</tr>
+<tr>
+<td>Dingle</td>
+<td align="right">20</td>
+<td>PH</td>
+<td>4/11/2018 6:52</td>
+<td align="right">67</td>
+<td align="right">11</td>
+<td align="right">122.67</td>
+<td align="right">87.05</td>
+<td align="right">13.8</td>
+</tr>
+<tr>
+<td>Thinadhoo</td>
+<td align="right">76</td>
+<td>MV</td>
+<td>4/11/2018 6:51</td>
+<td align="right">100</td>
+<td align="right">0.53</td>
+<td align="right">72.93</td>
+<td align="right">85.07</td>
+<td align="right">6.98</td>
+</tr>
+<tr>
+<td>Olinda</td>
+<td align="right">40</td>
+<td>EC</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">-2.03</td>
+<td align="right">-79.75</td>
+<td align="right">73.4</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Kavaratti</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">10.57</td>
+<td align="right">72.64</td>
+<td align="right">85.61</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Klaksvik</td>
+<td align="right">92</td>
+<td>FO</td>
+<td>4/11/2018 6:20</td>
+<td align="right">93</td>
+<td align="right">62.23</td>
+<td align="right">-6.59</td>
+<td align="right">41</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Itarare</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:51</td>
+<td align="right">97</td>
+<td align="right">-24.11</td>
+<td align="right">-49.33</td>
+<td align="right">61.13</td>
+<td align="right">5.3</td>
+</tr>
+<tr>
+<td>Guanica</td>
+<td align="right">56</td>
+<td>PR</td>
+<td>4/11/2018 6:51</td>
+<td align="right">100</td>
+<td align="right">17.97</td>
+<td align="right">-66.91</td>
+<td align="right">76.16</td>
+<td align="right">12.24</td>
+</tr>
+<tr>
+<td>Saint Augustine</td>
+<td align="right">20</td>
+<td>TT</td>
+<td>4/11/2018 6:00</td>
+<td align="right">83</td>
+<td align="right">10.65</td>
+<td align="right">-61.4</td>
+<td align="right">75.2</td>
+<td align="right">11.45</td>
+</tr>
+<tr>
+<td>Karpathos</td>
+<td align="right">40</td>
+<td>GR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">93</td>
+<td align="right">35.51</td>
+<td align="right">27.21</td>
+<td align="right">62.6</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Bubaque</td>
+<td align="right">20</td>
+<td>GW</td>
+<td>4/11/2018 6:00</td>
+<td align="right">83</td>
+<td align="right">11.28</td>
+<td align="right">-15.83</td>
+<td align="right">75.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Saint George</td>
+<td align="right">40</td>
+<td>GR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">87</td>
+<td align="right">39.45</td>
+<td align="right">22.34</td>
+<td align="right">53.6</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Sur</td>
+<td align="right">12</td>
+<td>OM</td>
+<td>4/11/2018 6:51</td>
+<td align="right">83</td>
+<td align="right">22.57</td>
+<td align="right">59.53</td>
+<td align="right">83.81</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Torbay</td>
+<td align="right">20</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">92</td>
+<td align="right">47.66</td>
+<td align="right">-52.73</td>
+<td align="right">26.6</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Kozhva</td>
+<td align="right">88</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">75</td>
+<td align="right">65.11</td>
+<td align="right">57.05</td>
+<td align="right">20.99</td>
+<td align="right">16.71</td>
+</tr>
+<tr>
+<td>Camacha</td>
+<td align="right">40</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">87</td>
+<td align="right">33.08</td>
+<td align="right">-16.33</td>
+<td align="right">62.6</td>
+<td align="right">21.92</td>
+</tr>
+<tr>
+<td>Nouadhibou</td>
+<td align="right">0</td>
+<td>MR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">72</td>
+<td align="right">20.93</td>
+<td align="right">-17.03</td>
+<td align="right">60.8</td>
+<td align="right">24.16</td>
+</tr>
+<tr>
+<td>Jamestown</td>
+<td align="right">100</td>
+<td>AU</td>
+<td>4/11/2018 6:51</td>
+<td align="right">16</td>
+<td align="right">-33.21</td>
+<td align="right">138.6</td>
+<td align="right">89.39</td>
+<td align="right">21.18</td>
+</tr>
+<tr>
+<td>La Ceja</td>
+<td align="right">75</td>
+<td>CO</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">6.03</td>
+<td align="right">-75.43</td>
+<td align="right">57.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Salalah</td>
+<td align="right">40</td>
+<td>OM</td>
+<td>4/11/2018 5:50</td>
+<td align="right">70</td>
+<td align="right">17.01</td>
+<td align="right">54.1</td>
+<td align="right">84.2</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Daultala</td>
+<td align="right">40</td>
+<td>PK</td>
+<td>4/11/2018 6:00</td>
+<td align="right">50</td>
+<td align="right">33.19</td>
+<td align="right">73.14</td>
+<td align="right">77</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Mana</td>
+<td align="right">0</td>
+<td>RS</td>
+<td>4/11/2018 6:30</td>
+<td align="right">81</td>
+<td align="right">43.52</td>
+<td align="right">20.24</td>
+<td align="right">51.8</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Djambala</td>
+<td align="right">92</td>
+<td>CG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">95</td>
+<td align="right">-2.55</td>
+<td align="right">14.76</td>
+<td align="right">68.69</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Rio Grande</td>
+<td align="right">36</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">88</td>
+<td align="right">-32.03</td>
+<td align="right">-52.1</td>
+<td align="right">73.55</td>
+<td align="right">14.25</td>
+</tr>
+<tr>
+<td>Luderitz</td>
+<td align="right">0</td>
+<td>NA</td>
+<td>4/11/2018 6:51</td>
+<td align="right">91</td>
+<td align="right">-26.65</td>
+<td align="right">15.16</td>
+<td align="right">59.06</td>
+<td align="right">7.2</td>
+</tr>
+<tr>
+<td>Port-Cartier</td>
+<td align="right">75</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">84</td>
+<td align="right">50.03</td>
+<td align="right">-66.88</td>
+<td align="right">6.8</td>
+<td align="right">8.32</td>
+</tr>
+<tr>
+<td>Polis</td>
+<td align="right">20</td>
+<td>CY</td>
+<td>4/11/2018 6:30</td>
+<td align="right">77</td>
+<td align="right">35.04</td>
+<td align="right">32.42</td>
+<td align="right">66.2</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Westport</td>
+<td align="right">90</td>
+<td>IE</td>
+<td>4/11/2018 6:30</td>
+<td align="right">93</td>
+<td align="right">53.8</td>
+<td align="right">-9.52</td>
+<td align="right">42.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Chuy</td>
+<td align="right">12</td>
+<td>UY</td>
+<td>4/11/2018 6:52</td>
+<td align="right">80</td>
+<td align="right">-33.69</td>
+<td align="right">-53.46</td>
+<td align="right">71.12</td>
+<td align="right">12.24</td>
+</tr>
+<tr>
+<td>Port Alfred</td>
+<td align="right">80</td>
+<td>ZA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-33.59</td>
+<td align="right">26.89</td>
+<td align="right">64.64</td>
+<td align="right">8.32</td>
+</tr>
+<tr>
+<td>Luanda</td>
+<td align="right">75</td>
+<td>AO</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-8.83</td>
+<td align="right">13.24</td>
+<td align="right">78.8</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Sayyan</td>
+<td align="right">48</td>
+<td>YE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">77</td>
+<td align="right">15.17</td>
+<td align="right">44.32</td>
+<td align="right">61.04</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>Mmabatho</td>
+<td align="right">0</td>
+<td>ZA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-25.85</td>
+<td align="right">25.61</td>
+<td align="right">62.6</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Dolores</td>
+<td align="right">92</td>
+<td>AR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">98</td>
+<td align="right">-36.31</td>
+<td align="right">-57.68</td>
+<td align="right">67.88</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Coquimbo</td>
+<td align="right">0</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">82</td>
+<td align="right">-29.95</td>
+<td align="right">-71.34</td>
+<td align="right">59</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Cape Town</td>
+<td align="right">0</td>
+<td>ZA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">71</td>
+<td align="right">-33.93</td>
+<td align="right">18.42</td>
+<td align="right">57.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>East London</td>
+<td align="right">40</td>
+<td>ZA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">77</td>
+<td align="right">-33.02</td>
+<td align="right">27.91</td>
+<td align="right">59</td>
+<td align="right">13.87</td>
+</tr>
+<tr>
+<td>Huarmey</td>
+<td align="right">12</td>
+<td>PE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">83</td>
+<td align="right">-10.07</td>
+<td align="right">-78.15</td>
+<td align="right">59.42</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Mezen</td>
+<td align="right">32</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">68</td>
+<td align="right">65.85</td>
+<td align="right">44.24</td>
+<td align="right">29.54</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Margate</td>
+<td align="right">75</td>
+<td>AU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">58</td>
+<td align="right">-43.03</td>
+<td align="right">147.26</td>
+<td align="right">57.2</td>
+<td align="right">13.87</td>
+</tr>
+<tr>
+<td>Aconibe</td>
+<td align="right">36</td>
+<td>GQ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">94</td>
+<td align="right">1.29</td>
+<td align="right">10.94</td>
+<td align="right">65.09</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Tiznit</td>
+<td align="right">88</td>
+<td>MA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">29.7</td>
+<td align="right">-9.73</td>
+<td align="right">57.62</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Lodja</td>
+<td align="right">80</td>
+<td>CD</td>
+<td>4/11/2018 6:52</td>
+<td align="right">98</td>
+<td align="right">-3.52</td>
+<td align="right">23.6</td>
+<td align="right">72.02</td>
+<td align="right">3.18</td>
+</tr>
+<tr>
+<td>Frederico Westphalen</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">79</td>
+<td align="right">-27.36</td>
+<td align="right">-53.4</td>
+<td align="right">66.89</td>
+<td align="right">6.76</td>
+</tr>
+<tr>
+<td>Morondava</td>
+<td align="right">0</td>
+<td>MG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">87</td>
+<td align="right">-20.3</td>
+<td align="right">44.28</td>
+<td align="right">81.92</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Necochea</td>
+<td align="right">92</td>
+<td>AR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">-38.55</td>
+<td align="right">-58.74</td>
+<td align="right">67.61</td>
+<td align="right">13.13</td>
+</tr>
+<tr>
+<td>Kamenka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">95</td>
+<td align="right">53.19</td>
+<td align="right">44.05</td>
+<td align="right">35.75</td>
+<td align="right">8.66</td>
+</tr>
+<tr>
+<td>Astana</td>
+<td align="right">75</td>
+<td>KZ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">65</td>
+<td align="right">51.13</td>
+<td align="right">71.43</td>
+<td align="right">44.6</td>
+<td align="right">26.84</td>
+</tr>
+<tr>
+<td>Hodac</td>
+<td align="right">75</td>
+<td>RO</td>
+<td>4/11/2018 6:30</td>
+<td align="right">76</td>
+<td align="right">46.77</td>
+<td align="right">24.92</td>
+<td align="right">55.4</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Bandiagara</td>
+<td align="right">8</td>
+<td>ML</td>
+<td>4/11/2018 6:00</td>
+<td align="right">15</td>
+<td align="right">14.35</td>
+<td align="right">-3.61</td>
+<td align="right">87.8</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Cayenne</td>
+<td align="right">20</td>
+<td>GF</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">4.94</td>
+<td align="right">-52.33</td>
+<td align="right">73.4</td>
+<td align="right">5.75</td>
+</tr>
+<tr>
+<td>Namibe</td>
+<td align="right">76</td>
+<td>AO</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-15.19</td>
+<td align="right">12.15</td>
+<td align="right">76.25</td>
+<td align="right">4.74</td>
+</tr>
+<tr>
+<td>Yarada</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">17.65</td>
+<td align="right">83.27</td>
+<td align="right">82.37</td>
+<td align="right">9.44</td>
+</tr>
+<tr>
+<td>Voi</td>
+<td align="right">12</td>
+<td>KE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">84</td>
+<td align="right">-3.4</td>
+<td align="right">38.57</td>
+<td align="right">74.45</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>Comodoro Rivadavia</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">-45.87</td>
+<td align="right">-67.48</td>
+<td align="right">48.2</td>
+<td align="right">19.46</td>
+</tr>
+<tr>
+<td>Rafai</td>
+<td align="right">56</td>
+<td>CF</td>
+<td>4/11/2018 6:52</td>
+<td align="right">91</td>
+<td align="right">4.95</td>
+<td align="right">23.92</td>
+<td align="right">74</td>
+<td align="right">5.19</td>
+</tr>
+<tr>
+<td>Santa Maria</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">83</td>
+<td align="right">-29.69</td>
+<td align="right">-53.81</td>
+<td align="right">65.54</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>Cidreira</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">78</td>
+<td align="right">-30.17</td>
+<td align="right">-50.22</td>
+<td align="right">72.83</td>
+<td align="right">12.01</td>
+</tr>
+<tr>
+<td>Puri</td>
+<td align="right">24</td>
+<td>ID</td>
+<td>4/11/2018 6:52</td>
+<td align="right">75</td>
+<td align="right">-7.54</td>
+<td align="right">112.45</td>
+<td align="right">84.71</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>Lagoa Santa</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">77</td>
+<td align="right">-19.64</td>
+<td align="right">-43.9</td>
+<td align="right">66.2</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Victoria</td>
+<td align="right">75</td>
+<td>BN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">75</td>
+<td align="right">5.28</td>
+<td align="right">115.24</td>
+<td align="right">91.4</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Mapiripan</td>
+<td align="right">92</td>
+<td>CO</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">2.89</td>
+<td align="right">-72.13</td>
+<td align="right">70.04</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Shahreza</td>
+<td align="right">8</td>
+<td>IR</td>
+<td>4/11/2018 6:49</td>
+<td align="right">89</td>
+<td align="right">32.01</td>
+<td align="right">51.87</td>
+<td align="right">50.06</td>
+<td align="right">0.94</td>
+</tr>
+<tr>
+<td>Bredasdorp</td>
+<td align="right">40</td>
+<td>ZA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">67</td>
+<td align="right">-34.53</td>
+<td align="right">20.04</td>
+<td align="right">60.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Takoradi</td>
+<td align="right">32</td>
+<td>GH</td>
+<td>4/11/2018 6:50</td>
+<td align="right">100</td>
+<td align="right">4.89</td>
+<td align="right">-1.75</td>
+<td align="right">79.31</td>
+<td align="right">5.08</td>
+</tr>
+<tr>
+<td>Longyearbyen</td>
+<td align="right">75</td>
+<td>NO</td>
+<td>4/11/2018 6:20</td>
+<td align="right">72</td>
+<td align="right">78.22</td>
+<td align="right">15.63</td>
+<td align="right">17.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Balkanabat</td>
+<td align="right">0</td>
+<td>TM</td>
+<td>4/11/2018 6:52</td>
+<td align="right">44</td>
+<td align="right">39.51</td>
+<td align="right">54.36</td>
+<td align="right">58.52</td>
+<td align="right">5.75</td>
+</tr>
+<tr>
+<td>Nizwa</td>
+<td align="right">8</td>
+<td>OM</td>
+<td>4/11/2018 6:52</td>
+<td align="right">22</td>
+<td align="right">22.93</td>
+<td align="right">57.53</td>
+<td align="right">90.74</td>
+<td align="right">4.07</td>
+</tr>
+<tr>
+<td>Punta Arenas</td>
+<td align="right">40</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">86</td>
+<td align="right">-53.16</td>
+<td align="right">-70.91</td>
+<td align="right">39.2</td>
+<td align="right">33.33</td>
+</tr>
+<tr>
+<td>Mashhad</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">30</td>
+<td align="right">36.3</td>
+<td align="right">59.61</td>
+<td align="right">59</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Georgetown</td>
+<td align="right">0</td>
+<td>GY</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">6.8</td>
+<td align="right">-58.16</td>
+<td align="right">73.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Nexo</td>
+<td align="right">20</td>
+<td>DK</td>
+<td>4/11/2018 6:20</td>
+<td align="right">80</td>
+<td align="right">55.06</td>
+<td align="right">15.13</td>
+<td align="right">39.2</td>
+<td align="right">28.86</td>
+</tr>
+<tr>
+<td>Les Cayes</td>
+<td align="right">76</td>
+<td>HT</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">18.19</td>
+<td align="right">-73.75</td>
+<td align="right">78.14</td>
+<td align="right">17.27</td>
+</tr>
+<tr>
+<td>Kaniama</td>
+<td align="right">64</td>
+<td>CD</td>
+<td>4/11/2018 6:52</td>
+<td align="right">93</td>
+<td align="right">-7.57</td>
+<td align="right">24.18</td>
+<td align="right">69.68</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Hit</td>
+<td align="right">80</td>
+<td>IQ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">89</td>
+<td align="right">33.64</td>
+<td align="right">42.83</td>
+<td align="right">65.27</td>
+<td align="right">4.52</td>
+</tr>
+<tr>
+<td>Oranjemund</td>
+<td align="right">0</td>
+<td>ZA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">-28.55</td>
+<td align="right">16.43</td>
+<td align="right">61.76</td>
+<td align="right">8.77</td>
+</tr>
+<tr>
+<td>Ostrovnoy</td>
+<td align="right">20</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">68.05</td>
+<td align="right">39.51</td>
+<td align="right">25.67</td>
+<td align="right">13.13</td>
+</tr>
+<tr>
+<td>Chake Chake</td>
+<td align="right">92</td>
+<td>TZ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-5.25</td>
+<td align="right">39.77</td>
+<td align="right">78.95</td>
+<td align="right">8.43</td>
+</tr>
+<tr>
+<td>Viedma</td>
+<td align="right">36</td>
+<td>AR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">39</td>
+<td align="right">-40.81</td>
+<td align="right">-62.99</td>
+<td align="right">61.4</td>
+<td align="right">8.66</td>
+</tr>
+<tr>
+<td>Bay Roberts</td>
+<td align="right">20</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">92</td>
+<td align="right">47.58</td>
+<td align="right">-53.28</td>
+<td align="right">26.6</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Aleksandrov Gay</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">85</td>
+<td align="right">50.14</td>
+<td align="right">48.57</td>
+<td align="right">47.36</td>
+<td align="right">8.99</td>
+</tr>
+<tr>
+<td>Ararangua</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">-28.93</td>
+<td align="right">-49.49</td>
+<td align="right">71.57</td>
+<td align="right">16.82</td>
+</tr>
+<tr>
+<td>Urucui</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">98</td>
+<td align="right">-7.23</td>
+<td align="right">-44.56</td>
+<td align="right">69.77</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Rio Gallegos</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">60</td>
+<td align="right">-51.62</td>
+<td align="right">-69.22</td>
+<td align="right">39.2</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Tarpon Springs</td>
+<td align="right">90</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">93</td>
+<td align="right">28.15</td>
+<td align="right">-82.76</td>
+<td align="right">68</td>
+<td align="right">12.75</td>
+</tr>
+<tr>
+<td>Zinder</td>
+<td align="right">0</td>
+<td>NE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">14</td>
+<td align="right">13.81</td>
+<td align="right">8.99</td>
+<td align="right">77</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Butterworth</td>
+<td align="right">75</td>
+<td>MY</td>
+<td>4/11/2018 6:00</td>
+<td align="right">63</td>
+<td align="right">5.4</td>
+<td align="right">100.37</td>
+<td align="right">91.4</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Hastings</td>
+<td align="right">48</td>
+<td>NZ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-39.64</td>
+<td align="right">176.84</td>
+<td align="right">51.77</td>
+<td align="right">30.91</td>
+</tr>
+<tr>
+<td>Cockburn Town</td>
+<td align="right">48</td>
+<td>TC</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">21.46</td>
+<td align="right">-71.14</td>
+<td align="right">77.69</td>
+<td align="right">21.52</td>
+</tr>
+<tr>
+<td>Mazagao</td>
+<td align="right">75</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">-0.12</td>
+<td align="right">-51.29</td>
+<td align="right">75.2</td>
+<td align="right">12.75</td>
+</tr>
+<tr>
+<td>Brigantine</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:00</td>
+<td align="right">74</td>
+<td align="right">39.41</td>
+<td align="right">-74.36</td>
+<td align="right">35.6</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Newcastle</td>
+<td align="right">92</td>
+<td>ZA</td>
+<td>4/11/2018 6:49</td>
+<td align="right">97</td>
+<td align="right">-27.76</td>
+<td align="right">29.92</td>
+<td align="right">53.84</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>Taoudenni</td>
+<td align="right">0</td>
+<td>ML</td>
+<td>4/11/2018 6:52</td>
+<td align="right">34</td>
+<td align="right">22.68</td>
+<td align="right">-3.98</td>
+<td align="right">55.91</td>
+<td align="right">10.45</td>
+</tr>
+<tr>
+<td>Atbasar</td>
+<td align="right">0</td>
+<td>KZ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">87</td>
+<td align="right">51.81</td>
+<td align="right">68.36</td>
+<td align="right">42.68</td>
+<td align="right">16.6</td>
+</tr>
+<tr>
+<td>Coihaique</td>
+<td align="right">0</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">86</td>
+<td align="right">-45.58</td>
+<td align="right">-72.07</td>
+<td align="right">39.2</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Kamina</td>
+<td align="right">44</td>
+<td>CD</td>
+<td>4/11/2018 6:52</td>
+<td align="right">95</td>
+<td align="right">-8.74</td>
+<td align="right">25</td>
+<td align="right">70.49</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Touros</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-5.2</td>
+<td align="right">-35.46</td>
+<td align="right">72.56</td>
+<td align="right">5.19</td>
+</tr>
+<tr>
+<td>Blagoyevo</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">55</td>
+<td align="right">63.37</td>
+<td align="right">47.92</td>
+<td align="right">27.11</td>
+<td align="right">10.67</td>
+</tr>
+<tr>
+<td>Pustoshka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">83</td>
+<td align="right">56.34</td>
+<td align="right">29.37</td>
+<td align="right">34.22</td>
+<td align="right">16.37</td>
+</tr>
+<tr>
+<td>Vuktyl</td>
+<td align="right">76</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">69</td>
+<td align="right">63.86</td>
+<td align="right">57.31</td>
+<td align="right">23.78</td>
+<td align="right">12.46</td>
+</tr>
+<tr>
+<td>Abnub</td>
+<td align="right">0</td>
+<td>EG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">43</td>
+<td align="right">27.27</td>
+<td align="right">31.15</td>
+<td align="right">69.8</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Bataipora</td>
+<td align="right">8</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">66</td>
+<td align="right">-22.3</td>
+<td align="right">-53.27</td>
+<td align="right">72.74</td>
+<td align="right">8.88</td>
+</tr>
+<tr>
+<td>Oudtshoorn</td>
+<td align="right">20</td>
+<td>ZA</td>
+<td>4/11/2018 6:18</td>
+<td align="right">82</td>
+<td align="right">-33.59</td>
+<td align="right">22.2</td>
+<td align="right">57.2</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Mwinilunga</td>
+<td align="right">48</td>
+<td>ZM</td>
+<td>4/11/2018 6:52</td>
+<td align="right">91</td>
+<td align="right">-11.73</td>
+<td align="right">24.43</td>
+<td align="right">65.81</td>
+<td align="right">3.18</td>
+</tr>
+<tr>
+<td>Monchegorsk</td>
+<td align="right">80</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">81</td>
+<td align="right">67.94</td>
+<td align="right">32.93</td>
+<td align="right">28.73</td>
+<td align="right">3.29</td>
+</tr>
+<tr>
+<td>Ponta Delgada</td>
+<td align="right">40</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">37.73</td>
+<td align="right">-25.67</td>
+<td align="right">59</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Halifax</td>
+<td align="right">5</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">86</td>
+<td align="right">44.65</td>
+<td align="right">-63.58</td>
+<td align="right">28.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Nurota</td>
+<td align="right">0</td>
+<td>UZ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">27</td>
+<td align="right">40.56</td>
+<td align="right">65.69</td>
+<td align="right">62.6</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Ninotsminda</td>
+<td align="right">20</td>
+<td>GE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">50</td>
+<td align="right">41.27</td>
+<td align="right">43.59</td>
+<td align="right">53.6</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Saint-Francois</td>
+<td align="right">0</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">70</td>
+<td align="right">46.42</td>
+<td align="right">3.91</td>
+<td align="right">48.2</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Suez</td>
+<td align="right">0</td>
+<td>EG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">50</td>
+<td align="right">29.97</td>
+<td align="right">32.54</td>
+<td align="right">64.01</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Grand Gaube</td>
+<td align="right">20</td>
+<td>MU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">66</td>
+<td align="right">-20.01</td>
+<td align="right">57.66</td>
+<td align="right">84.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Sao Filipe</td>
+<td align="right">36</td>
+<td>CV</td>
+<td>4/11/2018 6:52</td>
+<td align="right">97</td>
+<td align="right">14.9</td>
+<td align="right">-24.5</td>
+<td align="right">70.58</td>
+<td align="right">20.85</td>
+</tr>
+<tr>
+<td>Shakawe</td>
+<td align="right">68</td>
+<td>BW</td>
+<td>4/11/2018 6:52</td>
+<td align="right">60</td>
+<td align="right">-18.36</td>
+<td align="right">21.84</td>
+<td align="right">72.65</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>Aswan</td>
+<td align="right">0</td>
+<td>EG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">25</td>
+<td align="right">24.09</td>
+<td align="right">32.9</td>
+<td align="right">73.4</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Gediz</td>
+<td align="right">90</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">87</td>
+<td align="right">38.99</td>
+<td align="right">29.39</td>
+<td align="right">50</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Moroni</td>
+<td align="right">92</td>
+<td>US</td>
+<td>4/11/2018 6:52</td>
+<td align="right">18</td>
+<td align="right">39.52</td>
+<td align="right">-111.59</td>
+<td align="right">54.56</td>
+<td align="right">7.87</td>
+</tr>
+<tr>
+<td>San Cristobal</td>
+<td align="right">40</td>
+<td>EC</td>
+<td>4/11/2018 6:00</td>
+<td align="right">93</td>
+<td align="right">-0.39</td>
+<td align="right">-78.55</td>
+<td align="right">42.8</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Saint-Philippe</td>
+<td align="right">1</td>
+<td>CA</td>
+<td>4/11/2018 6:15</td>
+<td align="right">92</td>
+<td align="right">45.36</td>
+<td align="right">-73.48</td>
+<td align="right">32</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Lamu</td>
+<td align="right">88</td>
+<td>ID</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">0.57</td>
+<td align="right">122.3</td>
+<td align="right">78.14</td>
+<td align="right">2.51</td>
+</tr>
+<tr>
+<td>Caxito</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">94</td>
+<td align="right">-22.65</td>
+<td align="right">-42.51</td>
+<td align="right">65.72</td>
+<td align="right">4.63</td>
+</tr>
+<tr>
+<td>Maine-Soroa</td>
+<td align="right">0</td>
+<td>NE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">20</td>
+<td align="right">13.21</td>
+<td align="right">12.02</td>
+<td align="right">70.4</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Lagoa</td>
+<td align="right">20</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">87</td>
+<td align="right">37.14</td>
+<td align="right">-8.45</td>
+<td align="right">50</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Marsh Harbour</td>
+<td align="right">0</td>
+<td>BS</td>
+<td>4/11/2018 6:52</td>
+<td align="right">98</td>
+<td align="right">26.54</td>
+<td align="right">-77.06</td>
+<td align="right">76.97</td>
+<td align="right">14.81</td>
+</tr>
+<tr>
+<td>Beira</td>
+<td align="right">40</td>
+<td>ES</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">43.2</td>
+<td align="right">-8.36</td>
+<td align="right">37.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Grindavik</td>
+<td align="right">75</td>
+<td>IS</td>
+<td>4/11/2018 6:30</td>
+<td align="right">93</td>
+<td align="right">63.84</td>
+<td align="right">-22.43</td>
+<td align="right">44.6</td>
+<td align="right">32.21</td>
+</tr>
+<tr>
+<td>Mitsamiouli</td>
+<td align="right">20</td>
+<td>KM</td>
+<td>4/11/2018 6:00</td>
+<td align="right">66</td>
+<td align="right">-11.38</td>
+<td align="right">43.28</td>
+<td align="right">87.8</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Allapalli</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:52</td>
+<td align="right">46</td>
+<td align="right">19.43</td>
+<td align="right">80.06</td>
+<td align="right">92.54</td>
+<td align="right">9.78</td>
+</tr>
+<tr>
+<td>Santa Barbara</td>
+<td align="right">75</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">93</td>
+<td align="right">34.42</td>
+<td align="right">-119.7</td>
+<td align="right">60.8</td>
+<td align="right">22.08</td>
+</tr>
+<tr>
+<td>Svencioneliai</td>
+<td align="right">0</td>
+<td>LT</td>
+<td>4/11/2018 6:52</td>
+<td align="right">77</td>
+<td align="right">55.17</td>
+<td align="right">26</td>
+<td align="right">38.27</td>
+<td align="right">19.51</td>
+</tr>
+<tr>
+<td>Chilca</td>
+<td align="right">75</td>
+<td>PE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">81</td>
+<td align="right">-13.22</td>
+<td align="right">-72.34</td>
+<td align="right">44.6</td>
+<td align="right">0.72</td>
+</tr>
+<tr>
+<td>Port Elizabeth</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 5:56</td>
+<td align="right">79</td>
+<td align="right">39.31</td>
+<td align="right">-74.98</td>
+<td align="right">37.4</td>
+<td align="right">6.08</td>
+</tr>
+<tr>
+<td>Rio Sereno</td>
+<td align="right">92</td>
+<td>PA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">95</td>
+<td align="right">8.82</td>
+<td align="right">-82.87</td>
+<td align="right">64.46</td>
+<td align="right">1.72</td>
+</tr>
+<tr>
+<td>Talara</td>
+<td align="right">64</td>
+<td>PE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">90</td>
+<td align="right">-4.58</td>
+<td align="right">-81.27</td>
+<td align="right">67.97</td>
+<td align="right">5.41</td>
+</tr>
+<tr>
+<td>Derzhavinsk</td>
+<td align="right">8</td>
+<td>KZ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">83</td>
+<td align="right">51.1</td>
+<td align="right">66.31</td>
+<td align="right">44.66</td>
+<td align="right">18.61</td>
+</tr>
+<tr>
+<td>Yauya</td>
+<td align="right">88</td>
+<td>PE</td>
+<td>4/11/2018 6:52</td>
+<td align="right">94</td>
+<td align="right">-8.99</td>
+<td align="right">-77.29</td>
+<td align="right">42.14</td>
+<td align="right">1.83</td>
+</tr>
+<tr>
+<td>Walvis Bay</td>
+<td align="right">0</td>
+<td>NA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-22.95</td>
+<td align="right">14.51</td>
+<td align="right">64.37</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Trinidad</td>
+<td align="right">0</td>
+<td>UY</td>
+<td>4/11/2018 6:52</td>
+<td align="right">71</td>
+<td align="right">-33.52</td>
+<td align="right">-56.9</td>
+<td align="right">72.74</td>
+<td align="right">9.44</td>
+</tr>
+<tr>
+<td>Tocopilla</td>
+<td align="right">56</td>
+<td>CL</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-22.09</td>
+<td align="right">-70.2</td>
+<td align="right">61.13</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Porto Novo</td>
+<td align="right">75</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">82</td>
+<td align="right">-23.68</td>
+<td align="right">-45.44</td>
+<td align="right">68</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Sassandra</td>
+<td align="right">8</td>
+<td>CI</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">4.95</td>
+<td align="right">-6.09</td>
+<td align="right">79.49</td>
+<td align="right">6.98</td>
+</tr>
+<tr>
+<td>Puerto Ayora</td>
+<td align="right">8</td>
+<td>EC</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-0.74</td>
+<td align="right">-90.35</td>
+<td align="right">73.82</td>
+<td align="right">7.31</td>
+</tr>
+<tr>
+<td>Saint Marys</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 5:54</td>
+<td align="right">92</td>
+<td align="right">41.43</td>
+<td align="right">-78.56</td>
+<td align="right">28.4</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Croydon</td>
+<td align="right">90</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">100</td>
+<td align="right">51.37</td>
+<td align="right">-0.1</td>
+<td align="right">50</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Saint-Joseph</td>
+<td align="right">92</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">81</td>
+<td align="right">43.56</td>
+<td align="right">6.97</td>
+<td align="right">53.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Mantua</td>
+<td align="right">40</td>
+<td>IT</td>
+<td>4/11/2018 6:20</td>
+<td align="right">93</td>
+<td align="right">45.16</td>
+<td align="right">10.79</td>
+<td align="right">50</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Muros</td>
+<td align="right">40</td>
+<td>ES</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">42.77</td>
+<td align="right">-9.06</td>
+<td align="right">33.8</td>
+<td align="right">5.75</td>
+</tr>
+<tr>
+<td>Hobyo</td>
+<td align="right">12</td>
+<td>SO</td>
+<td>4/11/2018 6:52</td>
+<td align="right">75</td>
+<td align="right">5.35</td>
+<td align="right">48.53</td>
+<td align="right">85.25</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Liverpool</td>
+<td align="right">75</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">87</td>
+<td align="right">53.41</td>
+<td align="right">-2.98</td>
+<td align="right">48.2</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Farafangana</td>
+<td align="right">20</td>
+<td>MG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-22.82</td>
+<td align="right">47.83</td>
+<td align="right">77.06</td>
+<td align="right">10.11</td>
+</tr>
+<tr>
+<td>Vila Velha</td>
+<td align="right">40</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-3.71</td>
+<td align="right">-38.6</td>
+<td align="right">77</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Matay</td>
+<td align="right">0</td>
+<td>EG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">48</td>
+<td align="right">28.42</td>
+<td align="right">30.79</td>
+<td align="right">70.49</td>
+<td align="right">4.52</td>
+</tr>
+<tr>
+<td>Krasnyy Oktyabr</td>
+<td align="right">8</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">90</td>
+<td align="right">56.12</td>
+<td align="right">38.88</td>
+<td align="right">31.43</td>
+<td align="right">18.05</td>
+</tr>
+<tr>
+<td>Torres</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-29.34</td>
+<td align="right">-49.73</td>
+<td align="right">68.24</td>
+<td align="right">8.99</td>
+</tr>
+<tr>
+<td>Akersberga</td>
+<td align="right">0</td>
+<td>SE</td>
+<td>4/11/2018 6:20</td>
+<td align="right">74</td>
+<td align="right">59.48</td>
+<td align="right">18.3</td>
+<td align="right">33.8</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Dehloran</td>
+<td align="right">44</td>
+<td>IR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">68</td>
+<td align="right">32.69</td>
+<td align="right">47.27</td>
+<td align="right">72.47</td>
+<td align="right">4.97</td>
+</tr>
+<tr>
+<td>Novoshcherbinovskaya</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">74</td>
+<td align="right">46.48</td>
+<td align="right">38.65</td>
+<td align="right">56</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Uyovu</td>
+<td align="right">92</td>
+<td>TZ</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-3.28</td>
+<td align="right">31.53</td>
+<td align="right">64.64</td>
+<td align="right">4.63</td>
+</tr>
+<tr>
+<td>Kalulushi</td>
+<td align="right">48</td>
+<td>ZM</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">-12.84</td>
+<td align="right">28.09</td>
+<td align="right">67.34</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Naryan-Mar</td>
+<td align="right">64</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">97</td>
+<td align="right">67.67</td>
+<td align="right">53.09</td>
+<td align="right">17.84</td>
+<td align="right">21.3</td>
+</tr>
+<tr>
+<td>Skopelos</td>
+<td align="right">0</td>
+<td>GR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">87</td>
+<td align="right">39.12</td>
+<td align="right">23.72</td>
+<td align="right">55.4</td>
+<td align="right">0.94</td>
+</tr>
+<tr>
+<td>Uvarovka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">79</td>
+<td align="right">55.53</td>
+<td align="right">35.61</td>
+<td align="right">34.49</td>
+<td align="right">16.71</td>
+</tr>
+<tr>
+<td>Leua</td>
+<td align="right">68</td>
+<td>AO</td>
+<td>4/11/2018 6:52</td>
+<td align="right">97</td>
+<td align="right">-11.65</td>
+<td align="right">20.45</td>
+<td align="right">63.29</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Izhma</td>
+<td align="right">80</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">65</td>
+<td align="right">65.01</td>
+<td align="right">53.91</td>
+<td align="right">24.32</td>
+<td align="right">15.59</td>
+</tr>
+<tr>
+<td>Plettenberg Bay</td>
+<td align="right">100</td>
+<td>ZA</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-34.05</td>
+<td align="right">23.37</td>
+<td align="right">60.86</td>
+<td align="right">4.52</td>
+</tr>
+<tr>
+<td>Riyadh</td>
+<td align="right">75</td>
+<td>SA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">44</td>
+<td align="right">24.63</td>
+<td align="right">46.72</td>
+<td align="right">75.2</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>San Julian</td>
+<td align="right">75</td>
+<td>SV</td>
+<td>4/11/2018 5:50</td>
+<td align="right">100</td>
+<td align="right">13.7</td>
+<td align="right">-89.56</td>
+<td align="right">73.4</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Lebork</td>
+<td align="right">75</td>
+<td>PL</td>
+<td>4/11/2018 6:30</td>
+<td align="right">80</td>
+<td align="right">54.54</td>
+<td align="right">17.75</td>
+<td align="right">39.2</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Palaia Fokaia</td>
+<td align="right">0</td>
+<td>GR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">76</td>
+<td align="right">37.72</td>
+<td align="right">23.95</td>
+<td align="right">59</td>
+<td align="right">2.39</td>
+</tr>
+<tr>
+<td>Sinnamary</td>
+<td align="right">92</td>
+<td>GF</td>
+<td>4/11/2018 6:53</td>
+<td align="right">97</td>
+<td align="right">5.38</td>
+<td align="right">-52.96</td>
+<td align="right">79.31</td>
+<td align="right">12.8</td>
+</tr>
+<tr>
+<td>Safranbolu</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">93</td>
+<td align="right">41.25</td>
+<td align="right">32.69</td>
+<td align="right">50</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Hukuntsi</td>
+<td align="right">88</td>
+<td>BW</td>
+<td>4/11/2018 6:53</td>
+<td align="right">97</td>
+<td align="right">-23.98</td>
+<td align="right">21.76</td>
+<td align="right">63.02</td>
+<td align="right">6.42</td>
+</tr>
+<tr>
+<td>Obo</td>
+<td align="right">12</td>
+<td>CF</td>
+<td>4/11/2018 6:52</td>
+<td align="right">90</td>
+<td align="right">5.39</td>
+<td align="right">26.49</td>
+<td align="right">73.55</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Sosnogorsk</td>
+<td align="right">80</td>
+<td>RU</td>
+<td>4/11/2018 6:52</td>
+<td align="right">59</td>
+<td align="right">63.59</td>
+<td align="right">53.93</td>
+<td align="right">26.57</td>
+<td align="right">14.81</td>
+</tr>
+<tr>
+<td>Quatre Cocos</td>
+<td align="right">20</td>
+<td>MU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">66</td>
+<td align="right">-20.21</td>
+<td align="right">57.76</td>
+<td align="right">84.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Idanre</td>
+<td align="right">20</td>
+<td>NG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">93</td>
+<td align="right">7.11</td>
+<td align="right">5.11</td>
+<td align="right">68.33</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Ippy</td>
+<td align="right">0</td>
+<td>CF</td>
+<td>4/11/2018 6:52</td>
+<td align="right">90</td>
+<td align="right">6.26</td>
+<td align="right">21.2</td>
+<td align="right">72.74</td>
+<td align="right">8.21</td>
+</tr>
+<tr>
+<td>Mikun</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">85</td>
+<td align="right">62.35</td>
+<td align="right">50.08</td>
+<td align="right">26.93</td>
+<td align="right">17.05</td>
+</tr>
+<tr>
+<td>Dubrovnik</td>
+<td align="right">0</td>
+<td>HR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">71</td>
+<td align="right">42.65</td>
+<td align="right">18.09</td>
+<td align="right">55.4</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Bukavu</td>
+<td align="right">92</td>
+<td>CD</td>
+<td>4/11/2018 6:52</td>
+<td align="right">100</td>
+<td align="right">-2.51</td>
+<td align="right">28.86</td>
+<td align="right">59.24</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Upington</td>
+<td align="right">20</td>
+<td>ZA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">82</td>
+<td align="right">-28.46</td>
+<td align="right">21.24</td>
+<td align="right">64.4</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Nicoya</td>
+<td align="right">68</td>
+<td>CR</td>
+<td>4/11/2018 6:52</td>
+<td align="right">96</td>
+<td align="right">10.15</td>
+<td align="right">-85.45</td>
+<td align="right">72.56</td>
+<td align="right">1.39</td>
+</tr>
+<tr>
+<td>Auxerre</td>
+<td align="right">0</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">81</td>
+<td align="right">47.8</td>
+<td align="right">3.58</td>
+<td align="right">46.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Rodniki</td>
+<td align="right">75</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">74</td>
+<td align="right">55.65</td>
+<td align="right">38.06</td>
+<td align="right">35.6</td>
+<td align="right">17.9</td>
+</tr>
+<tr>
+<td>Adeje</td>
+<td align="right">20</td>
+<td>NG</td>
+<td>4/11/2018 6:52</td>
+<td align="right">94</td>
+<td align="right">5.68</td>
+<td align="right">5.76</td>
+<td align="right">70.49</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Caucaia</td>
+<td align="right">40</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-3.73</td>
+<td align="right">-38.66</td>
+<td align="right">77</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Puerto Leguizamo</td>
+<td align="right">12</td>
+<td>CO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">97</td>
+<td align="right">-0.19</td>
+<td align="right">-74.78</td>
+<td align="right">72.74</td>
+<td align="right">2.51</td>
+</tr>
+<tr>
+<td>Elizabeth City</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:40</td>
+<td align="right">70</td>
+<td align="right">36.3</td>
+<td align="right">-76.22</td>
+<td align="right">44.6</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Sunderland</td>
+<td align="right">75</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">100</td>
+<td align="right">54.91</td>
+<td align="right">-1.38</td>
+<td align="right">42.8</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Bara</td>
+<td align="right">0</td>
+<td>NG</td>
+<td>4/11/2018 6:53</td>
+<td align="right">67</td>
+<td align="right">10.41</td>
+<td align="right">10.6</td>
+<td align="right">77.96</td>
+<td align="right">13.35</td>
+</tr>
+<tr>
+<td>Maldonado</td>
+<td align="right">0</td>
+<td>UY</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">-34.91</td>
+<td align="right">-54.96</td>
+<td align="right">71.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Santa Pola</td>
+<td align="right">0</td>
+<td>ES</td>
+<td>4/11/2018 6:30</td>
+<td align="right">70</td>
+<td align="right">38.19</td>
+<td align="right">-0.56</td>
+<td align="right">50</td>
+<td align="right">12.75</td>
+</tr>
+<tr>
+<td>Radeberg</td>
+<td align="right">0</td>
+<td>DE</td>
+<td>4/11/2018 6:20</td>
+<td align="right">66</td>
+<td align="right">51.12</td>
+<td align="right">13.92</td>
+<td align="right">53.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Pisco</td>
+<td align="right">0</td>
+<td>PE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-13.71</td>
+<td align="right">-76.2</td>
+<td align="right">68</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Menongue</td>
+<td align="right">20</td>
+<td>AO</td>
+<td>4/11/2018 6:52</td>
+<td align="right">95</td>
+<td align="right">-14.66</td>
+<td align="right">17.68</td>
+<td align="right">61.85</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Portel</td>
+<td align="right">20</td>
+<td>PT</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">38.31</td>
+<td align="right">-7.71</td>
+<td align="right">42.8</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Zabrze</td>
+<td align="right">0</td>
+<td>PL</td>
+<td>4/11/2018 6:30</td>
+<td align="right">58</td>
+<td align="right">50.31</td>
+<td align="right">18.79</td>
+<td align="right">57.2</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Jataizinho</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">83</td>
+<td align="right">-23.26</td>
+<td align="right">-50.98</td>
+<td align="right">69.8</td>
+<td align="right">13.47</td>
+</tr>
+<tr>
+<td>Husavik</td>
+<td align="right">32</td>
+<td>CA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">78</td>
+<td align="right">50.56</td>
+<td align="right">-96.99</td>
+<td align="right">23.42</td>
+<td align="right">10.45</td>
+</tr>
+<tr>
+<td>Meulaboh</td>
+<td align="right">12</td>
+<td>ID</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">4.14</td>
+<td align="right">96.13</td>
+<td align="right">84.62</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Berasia</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">26</td>
+<td align="right">23.63</td>
+<td align="right">77.43</td>
+<td align="right">93.2</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Maniitsoq</td>
+<td align="right">0</td>
+<td>GL</td>
+<td>4/11/2018 6:53</td>
+<td align="right">70</td>
+<td align="right">65.42</td>
+<td align="right">-52.9</td>
+<td align="right">17.66</td>
+<td align="right">9.66</td>
+</tr>
+<tr>
+<td>Banda Aceh</td>
+<td align="right">68</td>
+<td>ID</td>
+<td>4/11/2018 6:53</td>
+<td align="right">93</td>
+<td align="right">5.56</td>
+<td align="right">95.32</td>
+<td align="right">82.64</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Souillac</td>
+<td align="right">75</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">76</td>
+<td align="right">45.6</td>
+<td align="right">-0.6</td>
+<td align="right">51.8</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Praia</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">77</td>
+<td align="right">-20.25</td>
+<td align="right">-43.81</td>
+<td align="right">64.4</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Tsumeb</td>
+<td align="right">64</td>
+<td>NA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">86</td>
+<td align="right">-19.25</td>
+<td align="right">17.72</td>
+<td align="right">65.27</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Saldanha</td>
+<td align="right">64</td>
+<td>PT</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">41.42</td>
+<td align="right">-6.55</td>
+<td align="right">30.44</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Saryozek</td>
+<td align="right">76</td>
+<td>KZ</td>
+<td>4/11/2018 6:53</td>
+<td align="right">84</td>
+<td align="right">44.36</td>
+<td align="right">77.98</td>
+<td align="right">37.1</td>
+<td align="right">10.67</td>
+</tr>
+<tr>
+<td>Zainsk</td>
+<td align="right">75</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">69</td>
+<td align="right">55.29</td>
+<td align="right">52.01</td>
+<td align="right">39.2</td>
+<td align="right">11.18</td>
+</tr>
+<tr>
+<td>Liepaja</td>
+<td align="right">0</td>
+<td>LV</td>
+<td>4/11/2018 6:20</td>
+<td align="right">69</td>
+<td align="right">56.52</td>
+<td align="right">21.02</td>
+<td align="right">41</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Pestravka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">88</td>
+<td align="right">52.4</td>
+<td align="right">49.95</td>
+<td align="right">40.52</td>
+<td align="right">11.45</td>
+</tr>
+<tr>
+<td>Arauca</td>
+<td align="right">92</td>
+<td>VE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">91</td>
+<td align="right">7.08</td>
+<td align="right">-70.76</td>
+<td align="right">77.33</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Bonavista</td>
+<td align="right">0</td>
+<td>CA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">48.65</td>
+<td align="right">-53.11</td>
+<td align="right">25.04</td>
+<td align="right">10.22</td>
+</tr>
+<tr>
+<td>Imeni Stepana Razina</td>
+<td align="right">92</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">86</td>
+<td align="right">54.89</td>
+<td align="right">44.3</td>
+<td align="right">41.69</td>
+<td align="right">9.44</td>
+</tr>
+<tr>
+<td>Mount Pleasant</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:15</td>
+<td align="right">100</td>
+<td align="right">33.16</td>
+<td align="right">-94.97</td>
+<td align="right">50</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Zonguldak</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">93</td>
+<td align="right">41.25</td>
+<td align="right">31.83</td>
+<td align="right">50</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Pudozh</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">87</td>
+<td align="right">61.81</td>
+<td align="right">36.54</td>
+<td align="right">27.74</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Miramar</td>
+<td align="right">75</td>
+<td>CR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">10.09</td>
+<td align="right">-84.73</td>
+<td align="right">68</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Coruripe</td>
+<td align="right">76</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">99</td>
+<td align="right">-10.12</td>
+<td align="right">-36.18</td>
+<td align="right">79.94</td>
+<td align="right">10</td>
+</tr>
+<tr>
+<td>Qandala</td>
+<td align="right">0</td>
+<td>SO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">53</td>
+<td align="right">11.47</td>
+<td align="right">49.87</td>
+<td align="right">83.09</td>
+<td align="right">1.61</td>
+</tr>
+<tr>
+<td>Gazanjyk</td>
+<td align="right">0</td>
+<td>TM</td>
+<td>4/11/2018 6:53</td>
+<td align="right">53</td>
+<td align="right">39.24</td>
+<td align="right">55.52</td>
+<td align="right">60.59</td>
+<td align="right">9.1</td>
+</tr>
+<tr>
+<td>Kodinar</td>
+<td align="right">0</td>
+<td>IN</td>
+<td>4/11/2018 6:53</td>
+<td align="right">46</td>
+<td align="right">20.79</td>
+<td align="right">70.7</td>
+<td align="right">94.34</td>
+<td align="right">7.31</td>
+</tr>
+<tr>
+<td>Caledon</td>
+<td align="right">0</td>
+<td>ZA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">77</td>
+<td align="right">-34.23</td>
+<td align="right">19.43</td>
+<td align="right">53.21</td>
+<td align="right">8.55</td>
+</tr>
+<tr>
+<td>Savalou</td>
+<td align="right">0</td>
+<td>BJ</td>
+<td>4/11/2018 6:53</td>
+<td align="right">94</td>
+<td align="right">7.93</td>
+<td align="right">1.98</td>
+<td align="right">71.12</td>
+<td align="right">5.64</td>
+</tr>
+<tr>
+<td>Kruisfontein</td>
+<td align="right">48</td>
+<td>ZA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-34</td>
+<td align="right">24.73</td>
+<td align="right">63.74</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Marsa Matruh</td>
+<td align="right">90</td>
+<td>EG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">52</td>
+<td align="right">31.35</td>
+<td align="right">27.25</td>
+<td align="right">64.4</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Buchanan</td>
+<td align="right">75</td>
+<td>LR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">94</td>
+<td align="right">5.88</td>
+<td align="right">-10.05</td>
+<td align="right">75.2</td>
+<td align="right">6.53</td>
+</tr>
+<tr>
+<td>Tabas</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">17</td>
+<td align="right">33.6</td>
+<td align="right">56.92</td>
+<td align="right">66.44</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Goundam</td>
+<td align="right">24</td>
+<td>ML</td>
+<td>4/11/2018 6:53</td>
+<td align="right">26</td>
+<td align="right">16.42</td>
+<td align="right">-3.66</td>
+<td align="right">77.24</td>
+<td align="right">13.91</td>
+</tr>
+<tr>
+<td>Richards Bay</td>
+<td align="right">80</td>
+<td>ZA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">91</td>
+<td align="right">-28.77</td>
+<td align="right">32.06</td>
+<td align="right">68.24</td>
+<td align="right">12.24</td>
+</tr>
+<tr>
+<td>Lumeje</td>
+<td align="right">80</td>
+<td>AO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-11.56</td>
+<td align="right">20.78</td>
+<td align="right">64.01</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Mbanza-Ngungu</td>
+<td align="right">92</td>
+<td>CD</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">-5.25</td>
+<td align="right">14.87</td>
+<td align="right">70.94</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Zavodoukovsk</td>
+<td align="right">20</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">92</td>
+<td align="right">56.51</td>
+<td align="right">66.54</td>
+<td align="right">38.36</td>
+<td align="right">13.91</td>
+</tr>
+<tr>
+<td>Eydhafushi</td>
+<td align="right">48</td>
+<td>MV</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">5.1</td>
+<td align="right">73.07</td>
+<td align="right">85.61</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Pimentel</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-3.7</td>
+<td align="right">-45.5</td>
+<td align="right">71.75</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>Bekeshevskaya</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">58</td>
+<td align="right">44.11</td>
+<td align="right">42.43</td>
+<td align="right">59</td>
+<td align="right">8.95</td>
+</tr>
+<tr>
+<td>Przasnysz</td>
+<td align="right">64</td>
+<td>PL</td>
+<td>4/11/2018 6:53</td>
+<td align="right">71</td>
+<td align="right">53.02</td>
+<td align="right">20.88</td>
+<td align="right">56.54</td>
+<td align="right">18.05</td>
+</tr>
+<tr>
+<td>Pryazha</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">64</td>
+<td align="right">61.69</td>
+<td align="right">33.62</td>
+<td align="right">33.8</td>
+<td align="right">8.95</td>
+</tr>
+<tr>
+<td>The Valley</td>
+<td align="right">20</td>
+<td>AI</td>
+<td>4/11/2018 6:00</td>
+<td align="right">69</td>
+<td align="right">18.22</td>
+<td align="right">-63.06</td>
+<td align="right">78.8</td>
+<td align="right">17.22</td>
+</tr>
+<tr>
+<td>Maykor</td>
+<td align="right">24</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">89</td>
+<td align="right">59.01</td>
+<td align="right">55.89</td>
+<td align="right">32.06</td>
+<td align="right">13.91</td>
+</tr>
+<tr>
+<td>Rincon</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">100</td>
+<td align="right">32.3</td>
+<td align="right">-81.24</td>
+<td align="right">48.2</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Gonen</td>
+<td align="right">40</td>
+<td>IL</td>
+<td>4/11/2018 6:11</td>
+<td align="right">87</td>
+<td align="right">33.12</td>
+<td align="right">35.65</td>
+<td align="right">62.6</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Buraydah</td>
+<td align="right">75</td>
+<td>SA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">41</td>
+<td align="right">26.33</td>
+<td align="right">43.97</td>
+<td align="right">77</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Velingara</td>
+<td align="right">0</td>
+<td>SN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">36</td>
+<td align="right">13.64</td>
+<td align="right">-16.01</td>
+<td align="right">80.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Nisia Floresta</td>
+<td align="right">75</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-6.09</td>
+<td align="right">-35.21</td>
+<td align="right">75.2</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Mayumba</td>
+<td align="right">48</td>
+<td>GA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">99</td>
+<td align="right">-3.44</td>
+<td align="right">10.65</td>
+<td align="right">78.95</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Sacramento</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">87</td>
+<td align="right">38.58</td>
+<td align="right">-121.49</td>
+<td align="right">57.2</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Skegness</td>
+<td align="right">75</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">100</td>
+<td align="right">53.14</td>
+<td align="right">0.34</td>
+<td align="right">42.8</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Oranjestad</td>
+<td align="right">20</td>
+<td>AW</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">12.52</td>
+<td align="right">-70.03</td>
+<td align="right">80.6</td>
+<td align="right">17.22</td>
+</tr>
+<tr>
+<td>Tame</td>
+<td align="right">48</td>
+<td>CO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">91</td>
+<td align="right">6.46</td>
+<td align="right">-71.72</td>
+<td align="right">54.56</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>Kulhudhuffushi</td>
+<td align="right">56</td>
+<td>MV</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">6.62</td>
+<td align="right">73.07</td>
+<td align="right">85.61</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Dwarka</td>
+<td align="right">40</td>
+<td>IN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">42</td>
+<td align="right">28.58</td>
+<td align="right">77.04</td>
+<td align="right">84.2</td>
+<td align="right">12.75</td>
+</tr>
+<tr>
+<td>Akhnur</td>
+<td align="right">40</td>
+<td>IN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">69</td>
+<td align="right">32.87</td>
+<td align="right">74.73</td>
+<td align="right">73.4</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Inhambane</td>
+<td align="right">40</td>
+<td>MZ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-23.87</td>
+<td align="right">35.38</td>
+<td align="right">77</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Yenotayevka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">62</td>
+<td align="right">47.24</td>
+<td align="right">47.04</td>
+<td align="right">58.16</td>
+<td align="right">16.15</td>
+</tr>
+<tr>
+<td>Sambava</td>
+<td align="right">48</td>
+<td>MG</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-14.27</td>
+<td align="right">50.17</td>
+<td align="right">80.12</td>
+<td align="right">10.89</td>
+</tr>
+<tr>
+<td>Birjand</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">4</td>
+<td align="right">32.86</td>
+<td align="right">59.22</td>
+<td align="right">69.8</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Zverinogolovskoye</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">89</td>
+<td align="right">54.46</td>
+<td align="right">64.85</td>
+<td align="right">47.54</td>
+<td align="right">16.04</td>
+</tr>
+<tr>
+<td>Neuquen</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">62</td>
+<td align="right">-38.95</td>
+<td align="right">-68.06</td>
+<td align="right">53.6</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Mhlume</td>
+<td align="right">100</td>
+<td>SZ</td>
+<td>4/11/2018 6:53</td>
+<td align="right">97</td>
+<td align="right">-26.03</td>
+<td align="right">31.81</td>
+<td align="right">66.08</td>
+<td align="right">11.45</td>
+</tr>
+<tr>
+<td>Plavsk</td>
+<td align="right">68</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">53.71</td>
+<td align="right">37.29</td>
+<td align="right">37.91</td>
+<td align="right">18.5</td>
+</tr>
+<tr>
+<td>Pucallpa</td>
+<td align="right">20</td>
+<td>PE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-8.38</td>
+<td align="right">-74.54</td>
+<td align="right">77</td>
+<td align="right">2.39</td>
+</tr>
+<tr>
+<td>High Rock</td>
+<td align="right">8</td>
+<td>BS</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">26.63</td>
+<td align="right">-78.28</td>
+<td align="right">78.77</td>
+<td align="right">14.58</td>
+</tr>
+<tr>
+<td>Ngaoundere</td>
+<td align="right">75</td>
+<td>CM</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">7.32</td>
+<td align="right">13.58</td>
+<td align="right">64.4</td>
+<td align="right">5.53</td>
+</tr>
+<tr>
+<td>Yangambi</td>
+<td align="right">92</td>
+<td>CD</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">0.77</td>
+<td align="right">24.47</td>
+<td align="right">70.58</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Phalodi</td>
+<td align="right">8</td>
+<td>IN</td>
+<td>4/11/2018 6:53</td>
+<td align="right">50</td>
+<td align="right">27.13</td>
+<td align="right">72.36</td>
+<td align="right">88.31</td>
+<td align="right">4.63</td>
+</tr>
+<tr>
+<td>Kletnya</td>
+<td align="right">90</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">80</td>
+<td align="right">53.39</td>
+<td align="right">33.22</td>
+<td align="right">39.2</td>
+<td align="right">13.42</td>
+</tr>
+<tr>
+<td>Saint-Augustin</td>
+<td align="right">90</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">81</td>
+<td align="right">44.83</td>
+<td align="right">-0.61</td>
+<td align="right">51.8</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Kasempa</td>
+<td align="right">88</td>
+<td>ZM</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">-13.46</td>
+<td align="right">25.83</td>
+<td align="right">65.81</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Pitkyaranta</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">80</td>
+<td align="right">61.57</td>
+<td align="right">31.48</td>
+<td align="right">29.81</td>
+<td align="right">3.29</td>
+</tr>
+<tr>
+<td>Sergeyevka</td>
+<td align="right">0</td>
+<td>KZ</td>
+<td>4/11/2018 6:53</td>
+<td align="right">78</td>
+<td align="right">53.88</td>
+<td align="right">67.42</td>
+<td align="right">49.43</td>
+<td align="right">19.62</td>
+</tr>
+<tr>
+<td>Marovoay</td>
+<td align="right">20</td>
+<td>MG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">54</td>
+<td align="right">-16.11</td>
+<td align="right">46.64</td>
+<td align="right">84.2</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Antipovka</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">66</td>
+<td align="right">49.83</td>
+<td align="right">45.31</td>
+<td align="right">50.78</td>
+<td align="right">6.64</td>
+</tr>
+<tr>
+<td>Ustka</td>
+<td align="right">0</td>
+<td>PL</td>
+<td>4/11/2018 6:53</td>
+<td align="right">89</td>
+<td align="right">54.58</td>
+<td align="right">16.86</td>
+<td align="right">41.96</td>
+<td align="right">21.85</td>
+</tr>
+<tr>
+<td>Abaete</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">87</td>
+<td align="right">-19.16</td>
+<td align="right">-45.45</td>
+<td align="right">63.83</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Ilulissat</td>
+<td align="right">56</td>
+<td>GL</td>
+<td>4/11/2018 5:50</td>
+<td align="right">56</td>
+<td align="right">69.22</td>
+<td align="right">-51.1</td>
+<td align="right">15.8</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Carlisle</td>
+<td align="right">20</td>
+<td>GB</td>
+<td>4/11/2018 5:50</td>
+<td align="right">100</td>
+<td align="right">54.89</td>
+<td align="right">-2.94</td>
+<td align="right">39.2</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Bam</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">25</td>
+<td align="right">29.11</td>
+<td align="right">58.36</td>
+<td align="right">70.76</td>
+<td align="right">4.74</td>
+</tr>
+<tr>
+<td>Waddan</td>
+<td align="right">88</td>
+<td>LY</td>
+<td>4/11/2018 6:53</td>
+<td align="right">16</td>
+<td align="right">29.16</td>
+<td align="right">16.14</td>
+<td align="right">74</td>
+<td align="right">6.2</td>
+</tr>
+<tr>
+<td>Quchan</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">33</td>
+<td align="right">37.11</td>
+<td align="right">58.51</td>
+<td align="right">60.59</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Baillif</td>
+<td align="right">0</td>
+<td>GP</td>
+<td>4/11/2018 6:30</td>
+<td align="right">78</td>
+<td align="right">16.02</td>
+<td align="right">-61.75</td>
+<td align="right">75.2</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Krasnogorskoye</td>
+<td align="right">80</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">87</td>
+<td align="right">57.7</td>
+<td align="right">52.5</td>
+<td align="right">31.16</td>
+<td align="right">8.77</td>
+</tr>
+<tr>
+<td>Petrolina</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">69</td>
+<td align="right">-9.38</td>
+<td align="right">-40.5</td>
+<td align="right">75.2</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Ayorou</td>
+<td align="right">8</td>
+<td>NE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">62</td>
+<td align="right">14.73</td>
+<td align="right">0.92</td>
+<td align="right">71.66</td>
+<td align="right">10.67</td>
+</tr>
+<tr>
+<td>Touzim</td>
+<td align="right">75</td>
+<td>CZ</td>
+<td>4/11/2018 6:30</td>
+<td align="right">93</td>
+<td align="right">50.06</td>
+<td align="right">12.99</td>
+<td align="right">48.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Lima</td>
+<td align="right">0</td>
+<td>PE</td>
+<td>4/11/2018 6:49</td>
+<td align="right">86</td>
+<td align="right">-12.06</td>
+<td align="right">-77.04</td>
+<td align="right">54.65</td>
+<td align="right">2.28</td>
+</tr>
+<tr>
+<td>Puerto Asis</td>
+<td align="right">56</td>
+<td>CO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">97</td>
+<td align="right">0.51</td>
+<td align="right">-76.5</td>
+<td align="right">71.84</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Burgdorf</td>
+<td align="right">0</td>
+<td>CH</td>
+<td>4/11/2018 6:30</td>
+<td align="right">93</td>
+<td align="right">47.06</td>
+<td align="right">7.62</td>
+<td align="right">42.8</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Fuerte Olimpo</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">66</td>
+<td align="right">-21.04</td>
+<td align="right">-57.87</td>
+<td align="right">78.59</td>
+<td align="right">8.99</td>
+</tr>
+<tr>
+<td>Gastouni</td>
+<td align="right">40</td>
+<td>GR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">82</td>
+<td align="right">37.85</td>
+<td align="right">21.25</td>
+<td align="right">59</td>
+<td align="right">4.97</td>
+</tr>
+<tr>
+<td>Hazorasp</td>
+<td align="right">0</td>
+<td>UZ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">26</td>
+<td align="right">41.32</td>
+<td align="right">61.08</td>
+<td align="right">59</td>
+<td align="right">20.8</td>
+</tr>
+<tr>
+<td>Duku</td>
+<td align="right">12</td>
+<td>NG</td>
+<td>4/11/2018 6:53</td>
+<td align="right">76</td>
+<td align="right">11.24</td>
+<td align="right">4.91</td>
+<td align="right">77.24</td>
+<td align="right">7.76</td>
+</tr>
+<tr>
+<td>Anloga</td>
+<td align="right">40</td>
+<td>GH</td>
+<td>4/11/2018 6:00</td>
+<td align="right">100</td>
+<td align="right">5.79</td>
+<td align="right">0.9</td>
+<td align="right">75.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Kalabo</td>
+<td align="right">0</td>
+<td>ZM</td>
+<td>4/11/2018 6:53</td>
+<td align="right">82</td>
+<td align="right">-15</td>
+<td align="right">22.67</td>
+<td align="right">69.5</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>Rehoboth</td>
+<td align="right">0</td>
+<td>NA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">84</td>
+<td align="right">-23.31</td>
+<td align="right">17.08</td>
+<td align="right">55.64</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>Verdun</td>
+<td align="right">0</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">49.16</td>
+<td align="right">5.39</td>
+<td align="right">39.2</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Porto Belo</td>
+<td align="right">40</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-27.15</td>
+<td align="right">-48.54</td>
+<td align="right">73.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Jutai</td>
+<td align="right">88</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-1.71</td>
+<td align="right">-47.89</td>
+<td align="right">72.65</td>
+<td align="right">2.28</td>
+</tr>
+<tr>
+<td>Iquique</td>
+<td align="right">0</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">64</td>
+<td align="right">-20.22</td>
+<td align="right">-70.14</td>
+<td align="right">68</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Bouna</td>
+<td align="right">12</td>
+<td>CI</td>
+<td>4/11/2018 6:53</td>
+<td align="right">85</td>
+<td align="right">9.27</td>
+<td align="right">-3</td>
+<td align="right">74.72</td>
+<td align="right">9.33</td>
+</tr>
+<tr>
+<td>Laguna</td>
+<td align="right">0</td>
+<td>MX</td>
+<td>4/11/2018 6:53</td>
+<td align="right">63</td>
+<td align="right">27.52</td>
+<td align="right">-110.01</td>
+<td align="right">66.44</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Kamien Pomorski</td>
+<td align="right">0</td>
+<td>PL</td>
+<td>4/11/2018 6:30</td>
+<td align="right">87</td>
+<td align="right">53.97</td>
+<td align="right">14.77</td>
+<td align="right">44.6</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Belmonte</td>
+<td align="right">8</td>
+<td>PT</td>
+<td>4/11/2018 6:53</td>
+<td align="right">93</td>
+<td align="right">40.36</td>
+<td align="right">-7.35</td>
+<td align="right">32.24</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Develi</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">76</td>
+<td align="right">38.39</td>
+<td align="right">35.49</td>
+<td align="right">51.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Keuruu</td>
+<td align="right">0</td>
+<td>FI</td>
+<td>4/11/2018 6:20</td>
+<td align="right">63</td>
+<td align="right">62.26</td>
+<td align="right">24.71</td>
+<td align="right">30.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Oussouye</td>
+<td align="right">0</td>
+<td>SN</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">12.49</td>
+<td align="right">-16.54</td>
+<td align="right">69.8</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Totowa</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:45</td>
+<td align="right">92</td>
+<td align="right">40.91</td>
+<td align="right">-74.21</td>
+<td align="right">41</td>
+<td align="right">3.85</td>
+</tr>
+<tr>
+<td>Hamilton</td>
+<td align="right">75</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">92</td>
+<td align="right">43.26</td>
+<td align="right">-79.87</td>
+<td align="right">33.8</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Mecca</td>
+<td align="right">20</td>
+<td>SA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">48</td>
+<td align="right">21.43</td>
+<td align="right">39.83</td>
+<td align="right">84.2</td>
+<td align="right">3.85</td>
+</tr>
+<tr>
+<td>Umm Lajj</td>
+<td align="right">0</td>
+<td>SA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">81</td>
+<td align="right">25.02</td>
+<td align="right">37.27</td>
+<td align="right">73.91</td>
+<td align="right">2.39</td>
+</tr>
+<tr>
+<td>Rawson</td>
+<td align="right">88</td>
+<td>AR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">32</td>
+<td align="right">-43.3</td>
+<td align="right">-65.11</td>
+<td align="right">54.29</td>
+<td align="right">10.78</td>
+</tr>
+<tr>
+<td>Zabkowice Slaskie</td>
+<td align="right">0</td>
+<td>PL</td>
+<td>4/11/2018 6:30</td>
+<td align="right">76</td>
+<td align="right">50.59</td>
+<td align="right">16.81</td>
+<td align="right">55.4</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Bandarbeyla</td>
+<td align="right">56</td>
+<td>SO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">9.49</td>
+<td align="right">50.81</td>
+<td align="right">81.11</td>
+<td align="right">7.2</td>
+</tr>
+<tr>
+<td>Antalaha</td>
+<td align="right">44</td>
+<td>MG</td>
+<td>4/11/2018 6:53</td>
+<td align="right">88</td>
+<td align="right">-14.9</td>
+<td align="right">50.28</td>
+<td align="right">79.76</td>
+<td align="right">5.64</td>
+</tr>
+<tr>
+<td>Marathon</td>
+<td align="right">92</td>
+<td>CA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">87</td>
+<td align="right">48.72</td>
+<td align="right">-86.38</td>
+<td align="right">24.86</td>
+<td align="right">14.7</td>
+</tr>
+<tr>
+<td>Nuqui</td>
+<td align="right">76</td>
+<td>CO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">5.71</td>
+<td align="right">-77.27</td>
+<td align="right">76.43</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Do Gonbadan</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">18</td>
+<td align="right">30.36</td>
+<td align="right">50.8</td>
+<td align="right">82.4</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Conway</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">93</td>
+<td align="right">35.09</td>
+<td align="right">-92.44</td>
+<td align="right">46.4</td>
+<td align="right">5.64</td>
+</tr>
+<tr>
+<td>Skibbereen</td>
+<td align="right">75</td>
+<td>IE</td>
+<td>4/11/2018 6:30</td>
+<td align="right">93</td>
+<td align="right">51.55</td>
+<td align="right">-9.27</td>
+<td align="right">44.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Puerto Ayacucho</td>
+<td align="right">80</td>
+<td>CO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">5.66</td>
+<td align="right">-67.63</td>
+<td align="right">71.3</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Jardim</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">63</td>
+<td align="right">-21.48</td>
+<td align="right">-56.15</td>
+<td align="right">76.07</td>
+<td align="right">7.65</td>
+</tr>
+<tr>
+<td>Timra</td>
+<td align="right">0</td>
+<td>SE</td>
+<td>4/11/2018 6:20</td>
+<td align="right">73</td>
+<td align="right">62.49</td>
+<td align="right">17.33</td>
+<td align="right">23</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>San Juan</td>
+<td align="right">24</td>
+<td>AR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">57</td>
+<td align="right">-31.54</td>
+<td align="right">-68.53</td>
+<td align="right">59.51</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>General Roca</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">62</td>
+<td align="right">-39.03</td>
+<td align="right">-67.58</td>
+<td align="right">53.6</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Hirna</td>
+<td align="right">80</td>
+<td>ET</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">9.22</td>
+<td align="right">41.1</td>
+<td align="right">65.27</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>La Colmena</td>
+<td align="right">0</td>
+<td>PY</td>
+<td>4/11/2018 6:53</td>
+<td align="right">63</td>
+<td align="right">-25.89</td>
+<td align="right">-56.84</td>
+<td align="right">78.14</td>
+<td align="right">6.76</td>
+</tr>
+<tr>
+<td>Gopalganj</td>
+<td align="right">0</td>
+<td>BD</td>
+<td>4/11/2018 6:53</td>
+<td align="right">57</td>
+<td align="right">23.01</td>
+<td align="right">89.83</td>
+<td align="right">92.99</td>
+<td align="right">7.2</td>
+</tr>
+<tr>
+<td>Oistins</td>
+<td align="right">40</td>
+<td>BB</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">13.07</td>
+<td align="right">-59.53</td>
+<td align="right">77</td>
+<td align="right">21.92</td>
+</tr>
+<tr>
+<td>Kologriv</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">67</td>
+<td align="right">58.83</td>
+<td align="right">44.31</td>
+<td align="right">29.81</td>
+<td align="right">9.22</td>
+</tr>
+<tr>
+<td>Keene</td>
+<td align="right">90</td>
+<td>US</td>
+<td>4/11/2018 6:47</td>
+<td align="right">100</td>
+<td align="right">42.93</td>
+<td align="right">-72.28</td>
+<td align="right">33.8</td>
+<td align="right">2.51</td>
+</tr>
+<tr>
+<td>Port-Gentil</td>
+<td align="right">20</td>
+<td>GA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-0.72</td>
+<td align="right">8.78</td>
+<td align="right">78.8</td>
+<td align="right">1.5</td>
+</tr>
+<tr>
+<td>Sumbe</td>
+<td align="right">80</td>
+<td>AO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-11.2</td>
+<td align="right">13.84</td>
+<td align="right">75.71</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Pampas</td>
+<td align="right">48</td>
+<td>PE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">95</td>
+<td align="right">-12.4</td>
+<td align="right">-74.87</td>
+<td align="right">36.02</td>
+<td align="right">3.51</td>
+</tr>
+<tr>
+<td>Taybad</td>
+<td align="right">0</td>
+<td>IR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">62</td>
+<td align="right">34.74</td>
+<td align="right">60.78</td>
+<td align="right">55.64</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Matara</td>
+<td align="right">88</td>
+<td>PE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-13.74</td>
+<td align="right">-72.9</td>
+<td align="right">39.8</td>
+<td align="right">2.06</td>
+</tr>
+<tr>
+<td>Huayucachi</td>
+<td align="right">48</td>
+<td>PE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">81</td>
+<td align="right">-12.13</td>
+<td align="right">-75.23</td>
+<td align="right">35.75</td>
+<td align="right">2.28</td>
+</tr>
+<tr>
+<td>Dalbandin</td>
+<td align="right">0</td>
+<td>PK</td>
+<td>4/11/2018 6:53</td>
+<td align="right">22</td>
+<td align="right">28.9</td>
+<td align="right">64.41</td>
+<td align="right">74.36</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Areosa</td>
+<td align="right">20</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">41.72</td>
+<td align="right">-8.86</td>
+<td align="right">39.2</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Rundu</td>
+<td align="right">24</td>
+<td>NA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">71</td>
+<td align="right">-17.91</td>
+<td align="right">19.77</td>
+<td align="right">68.78</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Taloqan</td>
+<td align="right">0</td>
+<td>AF</td>
+<td>4/11/2018 6:53</td>
+<td align="right">74</td>
+<td align="right">36.74</td>
+<td align="right">69.54</td>
+<td align="right">50.78</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>La Rioja</td>
+<td align="right">24</td>
+<td>AR</td>
+<td>4/11/2018 6:49</td>
+<td align="right">74</td>
+<td align="right">-29.41</td>
+<td align="right">-66.86</td>
+<td align="right">72.74</td>
+<td align="right">6.42</td>
+</tr>
+<tr>
+<td>Paramonga</td>
+<td align="right">36</td>
+<td>PE</td>
+<td>4/11/2018 6:53</td>
+<td align="right">98</td>
+<td align="right">-10.68</td>
+<td align="right">-77.82</td>
+<td align="right">66.17</td>
+<td align="right">9.55</td>
+</tr>
+<tr>
+<td>Iskateley</td>
+<td align="right">76</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">96</td>
+<td align="right">67.68</td>
+<td align="right">53.15</td>
+<td align="right">17.93</td>
+<td align="right">22.3</td>
+</tr>
+<tr>
+<td>Lesnikovo</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:53</td>
+<td align="right">81</td>
+<td align="right">55.28</td>
+<td align="right">65.32</td>
+<td align="right">47.54</td>
+<td align="right">15.03</td>
+</tr>
+<tr>
+<td>Imbituba</td>
+<td align="right">40</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-28.24</td>
+<td align="right">-48.67</td>
+<td align="right">73.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Salinopolis</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-0.61</td>
+<td align="right">-47.36</td>
+<td align="right">78.77</td>
+<td align="right">8.55</td>
+</tr>
+<tr>
+<td>Batsfjord</td>
+<td align="right">0</td>
+<td>NO</td>
+<td>4/11/2018 5:50</td>
+<td align="right">100</td>
+<td align="right">70.63</td>
+<td align="right">29.72</td>
+<td align="right">33.8</td>
+<td align="right">19.46</td>
+</tr>
+<tr>
+<td>Sept-Iles</td>
+<td align="right">75</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">84</td>
+<td align="right">50.2</td>
+<td align="right">-66.38</td>
+<td align="right">6.8</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Carauari</td>
+<td align="right">44</td>
+<td>BR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-4.88</td>
+<td align="right">-66.9</td>
+<td align="right">72.2</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Konibodom</td>
+<td align="right">0</td>
+<td>TJ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">41</td>
+<td align="right">40.3</td>
+<td align="right">70.43</td>
+<td align="right">59</td>
+<td align="right">6.71</td>
+</tr>
+<tr>
+<td>Yashalta</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">83</td>
+<td align="right">46.34</td>
+<td align="right">42.27</td>
+<td align="right">53.3</td>
+<td align="right">4.63</td>
+</tr>
+<tr>
+<td>Puerto Baquerizo Moreno</td>
+<td align="right">0</td>
+<td>EC</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">-0.9</td>
+<td align="right">-89.6</td>
+<td align="right">76.16</td>
+<td align="right">6.87</td>
+</tr>
+<tr>
+<td>Ferrol</td>
+<td align="right">40</td>
+<td>ES</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">43.48</td>
+<td align="right">-8.23</td>
+<td align="right">37.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Pushkino</td>
+<td align="right">75</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">80</td>
+<td align="right">56.01</td>
+<td align="right">37.85</td>
+<td align="right">35.6</td>
+<td align="right">15.66</td>
+</tr>
+<tr>
+<td>Lubango</td>
+<td align="right">64</td>
+<td>AO</td>
+<td>4/11/2018 6:53</td>
+<td align="right">98</td>
+<td align="right">-14.92</td>
+<td align="right">13.49</td>
+<td align="right">64.82</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Bosansko Grahovo</td>
+<td align="right">48</td>
+<td>BA</td>
+<td>4/11/2018 6:53</td>
+<td align="right">81</td>
+<td align="right">44.18</td>
+<td align="right">16.37</td>
+<td align="right">45.56</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>Peniche</td>
+<td align="right">20</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">76</td>
+<td align="right">39.36</td>
+<td align="right">-9.38</td>
+<td align="right">50</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Castelfranco Emilia</td>
+<td align="right">75</td>
+<td>IT</td>
+<td>4/11/2018 6:20</td>
+<td align="right">87</td>
+<td align="right">44.59</td>
+<td align="right">11.05</td>
+<td align="right">50</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Tres Arroyos</td>
+<td align="right">92</td>
+<td>AR</td>
+<td>4/11/2018 6:53</td>
+<td align="right">96</td>
+<td align="right">-38.38</td>
+<td align="right">-60.28</td>
+<td align="right">66.89</td>
+<td align="right">12.8</td>
+</tr>
+<tr>
+<td>Jeremie</td>
+<td align="right">56</td>
+<td>HT</td>
+<td>4/11/2018 6:53</td>
+<td align="right">100</td>
+<td align="right">18.65</td>
+<td align="right">-74.12</td>
+<td align="right">74.27</td>
+<td align="right">5.75</td>
+</tr>
+<tr>
+<td>Gabu</td>
+<td align="right">24</td>
+<td>CN</td>
+<td>4/11/2018 6:54</td>
+<td align="right">42</td>
+<td align="right">34.78</td>
+<td align="right">103</td>
+<td align="right">61.67</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Bandundu</td>
+<td align="right">32</td>
+<td>CD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">96</td>
+<td align="right">-3.32</td>
+<td align="right">17.38</td>
+<td align="right">73.91</td>
+<td align="right">6.76</td>
+</tr>
+<tr>
+<td>Banikoara</td>
+<td align="right">44</td>
+<td>BJ</td>
+<td>4/11/2018 6:54</td>
+<td align="right">81</td>
+<td align="right">11.3</td>
+<td align="right">2.44</td>
+<td align="right">74.72</td>
+<td align="right">9.22</td>
+</tr>
+<tr>
+<td>Natalio</td>
+<td align="right">0</td>
+<td>PY</td>
+<td>4/11/2018 6:54</td>
+<td align="right">74</td>
+<td align="right">-26.76</td>
+<td align="right">-55.14</td>
+<td align="right">73.46</td>
+<td align="right">4.74</td>
+</tr>
+<tr>
+<td>Lyubashivka</td>
+<td align="right">8</td>
+<td>UA</td>
+<td>4/11/2018 6:54</td>
+<td align="right">67</td>
+<td align="right">47.84</td>
+<td align="right">30.26</td>
+<td align="right">57.53</td>
+<td align="right">4.63</td>
+</tr>
+<tr>
+<td>Yenagoa</td>
+<td align="right">80</td>
+<td>NG</td>
+<td>4/11/2018 6:54</td>
+<td align="right">93</td>
+<td align="right">4.92</td>
+<td align="right">6.26</td>
+<td align="right">73.91</td>
+<td align="right">3.06</td>
+</tr>
+<tr>
+<td>Broadstairs</td>
+<td align="right">75</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">93</td>
+<td align="right">51.36</td>
+<td align="right">1.44</td>
+<td align="right">48.2</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Rio Cuarto</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">-33.13</td>
+<td align="right">-64.35</td>
+<td align="right">71.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Kananga</td>
+<td align="right">48</td>
+<td>CD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">91</td>
+<td align="right">-5.9</td>
+<td align="right">22.41</td>
+<td align="right">71.84</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Filadelfia</td>
+<td align="right">0</td>
+<td>PY</td>
+<td>4/11/2018 6:54</td>
+<td align="right">63</td>
+<td align="right">-22.35</td>
+<td align="right">-60.04</td>
+<td align="right">81.29</td>
+<td align="right">12.68</td>
+</tr>
+<tr>
+<td>Vlore</td>
+<td align="right">92</td>
+<td>AL</td>
+<td>4/11/2018 6:54</td>
+<td align="right">98</td>
+<td align="right">40.47</td>
+<td align="right">19.49</td>
+<td align="right">59.78</td>
+<td align="right">8.99</td>
+</tr>
+<tr>
+<td>Grootfontein</td>
+<td align="right">8</td>
+<td>NA</td>
+<td>4/11/2018 6:54</td>
+<td align="right">94</td>
+<td align="right">-19.56</td>
+<td align="right">18.1</td>
+<td align="right">59.96</td>
+<td align="right">6.98</td>
+</tr>
+<tr>
+<td>Masumbwe</td>
+<td align="right">76</td>
+<td>TZ</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">-3.65</td>
+<td align="right">32.16</td>
+<td align="right">65.36</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Pedernales</td>
+<td align="right">32</td>
+<td>EC</td>
+<td>4/11/2018 6:54</td>
+<td align="right">92</td>
+<td align="right">0.07</td>
+<td align="right">-80.05</td>
+<td align="right">70.13</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Luquillo</td>
+<td align="right">40</td>
+<td>PR</td>
+<td>4/11/2018 5:56</td>
+<td align="right">88</td>
+<td align="right">18.37</td>
+<td align="right">-65.72</td>
+<td align="right">75.2</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Ati</td>
+<td align="right">0</td>
+<td>TD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">21</td>
+<td align="right">13.21</td>
+<td align="right">18.34</td>
+<td align="right">71.21</td>
+<td align="right">11.68</td>
+</tr>
+<tr>
+<td>Beirut</td>
+<td align="right">40</td>
+<td>LB</td>
+<td>4/11/2018 6:00</td>
+<td align="right">55</td>
+<td align="right">33.9</td>
+<td align="right">35.48</td>
+<td align="right">64.4</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Adelaide</td>
+<td align="right">12</td>
+<td>AU</td>
+<td>4/11/2018 6:07</td>
+<td align="right">19</td>
+<td align="right">-34.93</td>
+<td align="right">138.6</td>
+<td align="right">91.4</td>
+<td align="right">26.4</td>
+</tr>
+<tr>
+<td>Havre-Saint-Pierre</td>
+<td align="right">90</td>
+<td>CA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">85</td>
+<td align="right">50.23</td>
+<td align="right">-63.6</td>
+<td align="right">24.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Slavsk</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">66</td>
+<td align="right">55.05</td>
+<td align="right">21.68</td>
+<td align="right">40.97</td>
+<td align="right">19.17</td>
+</tr>
+<tr>
+<td>Diamantino</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">96</td>
+<td align="right">-14.4</td>
+<td align="right">-56.44</td>
+<td align="right">72.02</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Bonoua</td>
+<td align="right">40</td>
+<td>CI</td>
+<td>4/11/2018 6:30</td>
+<td align="right">94</td>
+<td align="right">5.27</td>
+<td align="right">-3.6</td>
+<td align="right">75.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Kifri</td>
+<td align="right">8</td>
+<td>IQ</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">34.69</td>
+<td align="right">44.96</td>
+<td align="right">64.46</td>
+<td align="right">8.66</td>
+</tr>
+<tr>
+<td>Kassala</td>
+<td align="right">68</td>
+<td>SD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">40</td>
+<td align="right">15.45</td>
+<td align="right">36.38</td>
+<td align="right">82.55</td>
+<td align="right">1.72</td>
+</tr>
+<tr>
+<td>Newtownards</td>
+<td align="right">80</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">100</td>
+<td align="right">54.59</td>
+<td align="right">-5.69</td>
+<td align="right">44.6</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Wad Rawah</td>
+<td align="right">0</td>
+<td>SD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">23</td>
+<td align="right">15.16</td>
+<td align="right">33.13</td>
+<td align="right">77.06</td>
+<td align="right">10</td>
+</tr>
+<tr>
+<td>Salamiyah</td>
+<td align="right">92</td>
+<td>SY</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">35.01</td>
+<td align="right">37.05</td>
+<td align="right">50.6</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Leh</td>
+<td align="right">80</td>
+<td>IN</td>
+<td>4/11/2018 6:54</td>
+<td align="right">95</td>
+<td align="right">34.16</td>
+<td align="right">77.58</td>
+<td align="right">20.99</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Resistencia</td>
+<td align="right">0</td>
+<td>AR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">83</td>
+<td align="right">-27.45</td>
+<td align="right">-58.99</td>
+<td align="right">78.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td align="right">12</td>
+<td>UY</td>
+<td>4/11/2018 6:54</td>
+<td align="right">69</td>
+<td align="right">-33.25</td>
+<td align="right">-58.03</td>
+<td align="right">73.73</td>
+<td align="right">9.66</td>
+</tr>
+<tr>
+<td>Antofagasta</td>
+<td align="right">40</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-23.65</td>
+<td align="right">-70.4</td>
+<td align="right">62.6</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Riberalta</td>
+<td align="right">48</td>
+<td>BO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">95</td>
+<td align="right">-11</td>
+<td align="right">-66.08</td>
+<td align="right">75.26</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Maroantsetra</td>
+<td align="right">0</td>
+<td>MG</td>
+<td>4/11/2018 6:54</td>
+<td align="right">97</td>
+<td align="right">-15.43</td>
+<td align="right">49.74</td>
+<td align="right">74.99</td>
+<td align="right">1.61</td>
+</tr>
+<tr>
+<td>Naryshkino</td>
+<td align="right">88</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">91</td>
+<td align="right">52.97</td>
+<td align="right">35.72</td>
+<td align="right">49.25</td>
+<td align="right">13.8</td>
+</tr>
+<tr>
+<td>Abha</td>
+<td align="right">75</td>
+<td>SA</td>
+<td>4/11/2018 6:00</td>
+<td align="right">77</td>
+<td align="right">18.22</td>
+<td align="right">42.5</td>
+<td align="right">60.8</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Khorramshahr</td>
+<td align="right">75</td>
+<td>IR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">47</td>
+<td align="right">30.43</td>
+<td align="right">48.18</td>
+<td align="right">82.4</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Kaspiyskiy</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">68</td>
+<td align="right">45.39</td>
+<td align="right">47.37</td>
+<td align="right">57.62</td>
+<td align="right">25.43</td>
+</tr>
+<tr>
+<td>Yugorsk</td>
+<td align="right">36</td>
+<td>RU</td>
+<td>4/11/2018 6:51</td>
+<td align="right">72</td>
+<td align="right">61.32</td>
+<td align="right">63.33</td>
+<td align="right">35.03</td>
+<td align="right">13.24</td>
+</tr>
+<tr>
+<td>Manavgat</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 6:20</td>
+<td align="right">77</td>
+<td align="right">36.79</td>
+<td align="right">31.44</td>
+<td align="right">62.6</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Bilma</td>
+<td align="right">0</td>
+<td>NE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">23</td>
+<td align="right">18.69</td>
+<td align="right">12.92</td>
+<td align="right">65</td>
+<td align="right">3.18</td>
+</tr>
+<tr>
+<td>Bafilo</td>
+<td align="right">0</td>
+<td>TG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">78</td>
+<td align="right">9.35</td>
+<td align="right">1.24</td>
+<td align="right">73.4</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Ciudad Bolivar</td>
+<td align="right">36</td>
+<td>VE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">80</td>
+<td align="right">8.12</td>
+<td align="right">-63.55</td>
+<td align="right">76.61</td>
+<td align="right">10.56</td>
+</tr>
+<tr>
+<td>Venice</td>
+<td align="right">90</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">88</td>
+<td align="right">27.1</td>
+<td align="right">-82.45</td>
+<td align="right">73.4</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Kutum</td>
+<td align="right">0</td>
+<td>SD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">20</td>
+<td align="right">14.2</td>
+<td align="right">24.66</td>
+<td align="right">66.89</td>
+<td align="right">11.79</td>
+</tr>
+<tr>
+<td>Maragogi</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">98</td>
+<td align="right">-9.01</td>
+<td align="right">-35.22</td>
+<td align="right">74.9</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Pimenta Bueno</td>
+<td align="right">36</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">97</td>
+<td align="right">-11.68</td>
+<td align="right">-61.19</td>
+<td align="right">72.56</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Samfya</td>
+<td align="right">92</td>
+<td>ZM</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-11.37</td>
+<td align="right">29.56</td>
+<td align="right">67.88</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Plouzane</td>
+<td align="right">90</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">100</td>
+<td align="right">48.38</td>
+<td align="right">-4.62</td>
+<td align="right">44.6</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>Bialystok</td>
+<td align="right">12</td>
+<td>PL</td>
+<td>4/11/2018 6:50</td>
+<td align="right">78</td>
+<td align="right">53.13</td>
+<td align="right">23.15</td>
+<td align="right">48.89</td>
+<td align="right">18.05</td>
+</tr>
+<tr>
+<td>Piacabucu</td>
+<td align="right">88</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">86</td>
+<td align="right">-10.41</td>
+<td align="right">-36.43</td>
+<td align="right">75.62</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Djibo</td>
+<td align="right">8</td>
+<td>BF</td>
+<td>4/11/2018 6:54</td>
+<td align="right">60</td>
+<td align="right">14.1</td>
+<td align="right">-1.63</td>
+<td align="right">73.73</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Pangoa</td>
+<td align="right">92</td>
+<td>PE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-12.12</td>
+<td align="right">-73</td>
+<td align="right">64.46</td>
+<td align="right">2.17</td>
+</tr>
+<tr>
+<td>Kivsharivka</td>
+<td align="right">0</td>
+<td>UA</td>
+<td>4/11/2018 6:54</td>
+<td align="right">73</td>
+<td align="right">49.63</td>
+<td align="right">37.68</td>
+<td align="right">53.66</td>
+<td align="right">4.52</td>
+</tr>
+<tr>
+<td>Messina</td>
+<td align="right">20</td>
+<td>IT</td>
+<td>4/11/2018 5:55</td>
+<td align="right">87</td>
+<td align="right">38.19</td>
+<td align="right">15.55</td>
+<td align="right">57.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Charleville-Mezieres</td>
+<td align="right">75</td>
+<td>FR</td>
+<td>4/11/2018 6:25</td>
+<td align="right">81</td>
+<td align="right">49.77</td>
+<td align="right">4.72</td>
+<td align="right">44.6</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Asosa</td>
+<td align="right">0</td>
+<td>ET</td>
+<td>4/11/2018 6:53</td>
+<td align="right">23</td>
+<td align="right">10.07</td>
+<td align="right">34.53</td>
+<td align="right">80.3</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Benguela</td>
+<td align="right">92</td>
+<td>AO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-12.58</td>
+<td align="right">13.4</td>
+<td align="right">75.8</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Olhao</td>
+<td align="right">20</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">87</td>
+<td align="right">37.03</td>
+<td align="right">-7.84</td>
+<td align="right">50</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Karasjok</td>
+<td align="right">75</td>
+<td>NO</td>
+<td>4/11/2018 6:20</td>
+<td align="right">64</td>
+<td align="right">69.47</td>
+<td align="right">25.52</td>
+<td align="right">37.4</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Kilosa</td>
+<td align="right">68</td>
+<td>TZ</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-6.84</td>
+<td align="right">36.99</td>
+<td align="right">70.31</td>
+<td align="right">2.84</td>
+</tr>
+<tr>
+<td>Bama</td>
+<td align="right">68</td>
+<td>CN</td>
+<td>4/11/2018 6:54</td>
+<td align="right">72</td>
+<td align="right">24.14</td>
+<td align="right">107.25</td>
+<td align="right">78.5</td>
+<td align="right">9.66</td>
+</tr>
+<tr>
+<td>Darab</td>
+<td align="right">12</td>
+<td>IR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">36</td>
+<td align="right">28.75</td>
+<td align="right">54.55</td>
+<td align="right">69.41</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Manaure</td>
+<td align="right">48</td>
+<td>CO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">95</td>
+<td align="right">11.78</td>
+<td align="right">-72.45</td>
+<td align="right">79.22</td>
+<td align="right">19.84</td>
+</tr>
+<tr>
+<td>Loksa</td>
+<td align="right">0</td>
+<td>EE</td>
+<td>4/11/2018 6:20</td>
+<td align="right">64</td>
+<td align="right">59.58</td>
+<td align="right">25.72</td>
+<td align="right">37.4</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>Cumra</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">71</td>
+<td align="right">37.57</td>
+<td align="right">32.77</td>
+<td align="right">53.6</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td>Harper</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:15</td>
+<td align="right">75</td>
+<td align="right">30.3</td>
+<td align="right">-99.24</td>
+<td align="right">59</td>
+<td align="right">8.43</td>
+</tr>
+<tr>
+<td>Susurluk</td>
+<td align="right">75</td>
+<td>TR</td>
+<td>4/11/2018 5:50</td>
+<td align="right">93</td>
+<td align="right">39.91</td>
+<td align="right">28.16</td>
+<td align="right">53.6</td>
+<td align="right">3.74</td>
+</tr>
+<tr>
+<td>Ahmadpur Sial</td>
+<td align="right">40</td>
+<td>PK</td>
+<td>4/11/2018 5:56</td>
+<td align="right">51</td>
+<td align="right">30.68</td>
+<td align="right">71.77</td>
+<td align="right">82.4</td>
+<td align="right">5.53</td>
+</tr>
+<tr>
+<td>Gualeguaychu</td>
+<td align="right">32</td>
+<td>AR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">64</td>
+<td align="right">-33.01</td>
+<td align="right">-58.51</td>
+<td align="right">75.71</td>
+<td align="right">10.45</td>
+</tr>
+<tr>
+<td>Maceio</td>
+<td align="right">75</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-9.67</td>
+<td align="right">-35.74</td>
+<td align="right">75.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Pitimbu</td>
+<td align="right">90</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-7.47</td>
+<td align="right">-34.81</td>
+<td align="right">73.4</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Ankazobe</td>
+<td align="right">20</td>
+<td>MG</td>
+<td>4/11/2018 6:00</td>
+<td align="right">64</td>
+<td align="right">-18.32</td>
+<td align="right">47.12</td>
+<td align="right">73.4</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Novo Aripuana</td>
+<td align="right">8</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">94</td>
+<td align="right">-5.12</td>
+<td align="right">-60.38</td>
+<td align="right">75.98</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Mossoro</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-5.19</td>
+<td align="right">-37.34</td>
+<td align="right">70.76</td>
+<td align="right">6.42</td>
+</tr>
+<tr>
+<td>Hlukhiv</td>
+<td align="right">0</td>
+<td>UA</td>
+<td>4/11/2018 6:54</td>
+<td align="right">86</td>
+<td align="right">51.68</td>
+<td align="right">33.91</td>
+<td align="right">56.63</td>
+<td align="right">4.52</td>
+</tr>
+<tr>
+<td>Saint-Pierre</td>
+<td align="right">0</td>
+<td>FR</td>
+<td>4/11/2018 6:30</td>
+<td align="right">81</td>
+<td align="right">48.95</td>
+<td align="right">4.24</td>
+<td align="right">46.4</td>
+<td align="right">8.05</td>
+</tr>
+<tr>
+<td>La Palma</td>
+<td align="right">44</td>
+<td>CO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">5.36</td>
+<td align="right">-74.39</td>
+<td align="right">64.01</td>
+<td align="right">1.16</td>
+</tr>
+<tr>
+<td>Penzance</td>
+<td align="right">75</td>
+<td>GB</td>
+<td>4/11/2018 6:20</td>
+<td align="right">93</td>
+<td align="right">50.12</td>
+<td align="right">-5.53</td>
+<td align="right">50</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Bako</td>
+<td align="right">8</td>
+<td>NG</td>
+<td>4/11/2018 6:54</td>
+<td align="right">85</td>
+<td align="right">9.68</td>
+<td align="right">6.4</td>
+<td align="right">74.81</td>
+<td align="right">7.65</td>
+</tr>
+<tr>
+<td>Santa Cruz Cabralia</td>
+<td align="right">92</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">-16.28</td>
+<td align="right">-39.02</td>
+<td align="right">76.61</td>
+<td align="right">7.99</td>
+</tr>
+<tr>
+<td>Asuncion</td>
+<td align="right">0</td>
+<td>PY</td>
+<td>4/11/2018 6:00</td>
+<td align="right">74</td>
+<td align="right">-25.3</td>
+<td align="right">-57.63</td>
+<td align="right">78.8</td>
+<td align="right">9.17</td>
+</tr>
+<tr>
+<td>San Carlos</td>
+<td align="right">32</td>
+<td>VE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">85</td>
+<td align="right">9.66</td>
+<td align="right">-68.59</td>
+<td align="right">74.81</td>
+<td align="right">5.97</td>
+</tr>
+<tr>
+<td>Mount Darwin</td>
+<td align="right">88</td>
+<td>ZW</td>
+<td>4/11/2018 6:54</td>
+<td align="right">93</td>
+<td align="right">-16.77</td>
+<td align="right">31.58</td>
+<td align="right">69.86</td>
+<td align="right">4.41</td>
+</tr>
+<tr>
+<td>Watsa</td>
+<td align="right">76</td>
+<td>CD</td>
+<td>4/11/2018 6:54</td>
+<td align="right">96</td>
+<td align="right">3.04</td>
+<td align="right">29.53</td>
+<td align="right">69.41</td>
+<td align="right">4.07</td>
+</tr>
+<tr>
+<td>Baltay</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">92</td>
+<td align="right">52.47</td>
+<td align="right">46.63</td>
+<td align="right">35.39</td>
+<td align="right">8.21</td>
+</tr>
+<tr>
+<td>Maloy</td>
+<td align="right">80</td>
+<td>ID</td>
+<td>4/11/2018 6:54</td>
+<td align="right">67</td>
+<td align="right">1</td>
+<td align="right">118.1</td>
+<td align="right">86.24</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Kaluga</td>
+<td align="right">88</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">54.51</td>
+<td align="right">36.26</td>
+<td align="right">35.39</td>
+<td align="right">17.6</td>
+</tr>
+<tr>
+<td>Vangaindrano</td>
+<td align="right">12</td>
+<td>MG</td>
+<td>4/11/2018 6:54</td>
+<td align="right">91</td>
+<td align="right">-23.35</td>
+<td align="right">47.6</td>
+<td align="right">74.72</td>
+<td align="right">3.4</td>
+</tr>
+<tr>
+<td>Makinsk</td>
+<td align="right">32</td>
+<td>KZ</td>
+<td>4/11/2018 6:54</td>
+<td align="right">97</td>
+<td align="right">52.63</td>
+<td align="right">70.42</td>
+<td align="right">36.47</td>
+<td align="right">16.04</td>
+</tr>
+<tr>
+<td>Bonthe</td>
+<td align="right">68</td>
+<td>SL</td>
+<td>4/11/2018 6:54</td>
+<td align="right">91</td>
+<td align="right">7.53</td>
+<td align="right">-12.5</td>
+<td align="right">77.51</td>
+<td align="right">2.51</td>
+</tr>
+<tr>
+<td>Lodhran</td>
+<td align="right">32</td>
+<td>PK</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">29.54</td>
+<td align="right">71.63</td>
+<td align="right">75.08</td>
+<td align="right">5.08</td>
+</tr>
+<tr>
+<td>Canico</td>
+<td align="right">75</td>
+<td>PT</td>
+<td>4/11/2018 6:30</td>
+<td align="right">67</td>
+<td align="right">32.63</td>
+<td align="right">-16.85</td>
+<td align="right">62.6</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Salinas</td>
+<td align="right">75</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">76</td>
+<td align="right">36.67</td>
+<td align="right">-121.66</td>
+<td align="right">57.2</td>
+<td align="right">12.75</td>
+</tr>
+<tr>
+<td>Nushki</td>
+<td align="right">32</td>
+<td>PK</td>
+<td>4/11/2018 6:54</td>
+<td align="right">42</td>
+<td align="right">29.55</td>
+<td align="right">66.02</td>
+<td align="right">66.8</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Saint Anthony</td>
+<td align="right">40</td>
+<td>US</td>
+<td>4/11/2018 5:56</td>
+<td align="right">53</td>
+<td align="right">43.97</td>
+<td align="right">-111.68</td>
+<td align="right">55.4</td>
+<td align="right">10.29</td>
+</tr>
+<tr>
+<td>Boa Vista</td>
+<td align="right">90</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">65</td>
+<td align="right">2.82</td>
+<td align="right">-60.67</td>
+<td align="right">82.4</td>
+<td align="right">14.99</td>
+</tr>
+<tr>
+<td>Maun</td>
+<td align="right">0</td>
+<td>BW</td>
+<td>4/11/2018 6:00</td>
+<td align="right">77</td>
+<td align="right">-19.99</td>
+<td align="right">23.42</td>
+<td align="right">69.8</td>
+<td align="right">5.82</td>
+</tr>
+<tr>
+<td>Uchiza</td>
+<td align="right">32</td>
+<td>PE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">93</td>
+<td align="right">-8.46</td>
+<td align="right">-76.46</td>
+<td align="right">68.42</td>
+<td align="right">1.95</td>
+</tr>
+<tr>
+<td>Granada</td>
+<td align="right">40</td>
+<td>NI</td>
+<td>4/11/2018 6:00</td>
+<td align="right">74</td>
+<td align="right">11.93</td>
+<td align="right">-85.96</td>
+<td align="right">80.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Mednogorsk</td>
+<td align="right">20</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">88</td>
+<td align="right">51.41</td>
+<td align="right">57.59</td>
+<td align="right">37.82</td>
+<td align="right">9.78</td>
+</tr>
+<tr>
+<td>Malinovskiy</td>
+<td align="right">64</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">91</td>
+<td align="right">54.15</td>
+<td align="right">34.53</td>
+<td align="right">38.54</td>
+<td align="right">20.29</td>
+</tr>
+<tr>
+<td>Arica</td>
+<td align="right">0</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">63</td>
+<td align="right">-18.48</td>
+<td align="right">-70.32</td>
+<td align="right">64.4</td>
+<td align="right">3.36</td>
+</tr>
+<tr>
+<td>Libreville</td>
+<td align="right">20</td>
+<td>GA</td>
+<td>4/11/2018 6:30</td>
+<td align="right">94</td>
+<td align="right">0.39</td>
+<td align="right">9.45</td>
+<td align="right">77</td>
+<td align="right">4.7</td>
+</tr>
+<tr>
+<td>Panguma</td>
+<td align="right">64</td>
+<td>SL</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">8.18</td>
+<td align="right">-11.13</td>
+<td align="right">70.31</td>
+<td align="right">3.18</td>
+</tr>
+<tr>
+<td>Saint-Leu</td>
+<td align="right">0</td>
+<td>RE</td>
+<td>4/11/2018 6:30</td>
+<td align="right">58</td>
+<td align="right">-21.15</td>
+<td align="right">55.28</td>
+<td align="right">84.2</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Honningsvag</td>
+<td align="right">75</td>
+<td>NO</td>
+<td>4/11/2018 5:50</td>
+<td align="right">99</td>
+<td align="right">70.98</td>
+<td align="right">25.97</td>
+<td align="right">35.6</td>
+<td align="right">18.34</td>
+</tr>
+<tr>
+<td>Terenos</td>
+<td align="right">0</td>
+<td>BR</td>
+<td>4/11/2018 6:00</td>
+<td align="right">73</td>
+<td align="right">-20.44</td>
+<td align="right">-54.87</td>
+<td align="right">75.2</td>
+<td align="right">13.87</td>
+</tr>
+<tr>
+<td>Tornio</td>
+<td align="right">0</td>
+<td>FI</td>
+<td>4/11/2018 6:20</td>
+<td align="right">59</td>
+<td align="right">61.12</td>
+<td align="right">27.27</td>
+<td align="right">37.4</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Nuuk</td>
+<td align="right">8</td>
+<td>GL</td>
+<td>4/11/2018 5:50</td>
+<td align="right">79</td>
+<td align="right">64.17</td>
+<td align="right">-51.74</td>
+<td align="right">28.4</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Zurrieq</td>
+<td align="right">40</td>
+<td>MT</td>
+<td>4/11/2018 6:15</td>
+<td align="right">72</td>
+<td align="right">35.83</td>
+<td align="right">14.47</td>
+<td align="right">62.6</td>
+<td align="right">6.93</td>
+</tr>
+<tr>
+<td>Mbigou</td>
+<td align="right">80</td>
+<td>GA</td>
+<td>4/11/2018 6:54</td>
+<td align="right">97</td>
+<td align="right">-1.9</td>
+<td align="right">11.91</td>
+<td align="right">67.34</td>
+<td align="right">2.95</td>
+</tr>
+<tr>
+<td>Robore</td>
+<td align="right">0</td>
+<td>BO</td>
+<td>4/11/2018 6:54</td>
+<td align="right">64</td>
+<td align="right">-18.33</td>
+<td align="right">-59.76</td>
+<td align="right">79.49</td>
+<td align="right">9.44</td>
+</tr>
+<tr>
+<td>Sosnovoborsk</td>
+<td align="right">40</td>
+<td>RU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">52</td>
+<td align="right">56.12</td>
+<td align="right">93.34</td>
+<td align="right">41</td>
+<td align="right">8.95</td>
+</tr>
+<tr>
+<td>Abidjan</td>
+<td align="right">40</td>
+<td>CI</td>
+<td>4/11/2018 6:30</td>
+<td align="right">94</td>
+<td align="right">5.32</td>
+<td align="right">-4.02</td>
+<td align="right">75.2</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Quelimane</td>
+<td align="right">75</td>
+<td>MZ</td>
+<td>4/11/2018 6:00</td>
+<td align="right">88</td>
+<td align="right">-17.88</td>
+<td align="right">36.89</td>
+<td align="right">78.8</td>
+<td align="right">2.24</td>
+</tr>
+<tr>
+<td>Tarauaca</td>
+<td align="right">20</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">95</td>
+<td align="right">-8.16</td>
+<td align="right">-70.77</td>
+<td align="right">74.27</td>
+<td align="right">2.51</td>
+</tr>
+<tr>
+<td>Wielun</td>
+<td align="right">0</td>
+<td>PL</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">51.22</td>
+<td align="right">18.57</td>
+<td align="right">52.31</td>
+<td align="right">4.18</td>
+</tr>
+<tr>
+<td>Ormara</td>
+<td align="right">20</td>
+<td>PK</td>
+<td>4/11/2018 6:54</td>
+<td align="right">57</td>
+<td align="right">25.21</td>
+<td align="right">64.64</td>
+<td align="right">87.32</td>
+<td align="right">10.67</td>
+</tr>
+<tr>
+<td>Nelidovo</td>
+<td align="right">0</td>
+<td>RU</td>
+<td>4/11/2018 6:54</td>
+<td align="right">76</td>
+<td align="right">56.22</td>
+<td align="right">32.78</td>
+<td align="right">33.77</td>
+<td align="right">17.27</td>
+</tr>
+<tr>
+<td>Vranje</td>
+<td align="right">0</td>
+<td>RS</td>
+<td>4/11/2018 6:30</td>
+<td align="right">76</td>
+<td align="right">42.55</td>
+<td align="right">21.9</td>
+<td align="right">53.6</td>
+<td align="right">2.39</td>
+</tr>
+<tr>
+<td>Kabompo</td>
+<td align="right">20</td>
+<td>ZM</td>
+<td>4/11/2018 6:54</td>
+<td align="right">99</td>
+<td align="right">-13.6</td>
+<td align="right">24.21</td>
+<td align="right">67.61</td>
+<td align="right">3.96</td>
+</tr>
+<tr>
+<td>Lodwar</td>
+<td align="right">48</td>
+<td>KE</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">3.12</td>
+<td align="right">35.6</td>
+<td align="right">75.44</td>
+<td align="right">2.62</td>
+</tr>
+<tr>
+<td>Batouri</td>
+<td align="right">92</td>
+<td>CM</td>
+<td>4/11/2018 6:54</td>
+<td align="right">97</td>
+<td align="right">4.44</td>
+<td align="right">14.36</td>
+<td align="right">69.77</td>
+<td align="right">5.86</td>
+</tr>
+<tr>
+<td>Aripuana</td>
+<td align="right">64</td>
+<td>BR</td>
+<td>4/11/2018 6:54</td>
+<td align="right">100</td>
+<td align="right">-9.17</td>
+<td align="right">-60.63</td>
+<td align="right">71.66</td>
+<td align="right">3.62</td>
+</tr>
+<tr>
+<td>Iquitos</td>
+<td align="right">0</td>
+<td>PE</td>
+<td>4/11/2018 6:00</td>
+<td align="right">94</td>
+<td align="right">-3.75</td>
+<td align="right">-73.25</td>
+<td align="right">77</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Weimar</td>
+<td align="right">1</td>
+<td>US</td>
+<td>4/11/2018 6:35</td>
+<td align="right">93</td>
+<td align="right">29.7</td>
+<td align="right">-96.78</td>
+<td align="right">51.8</td>
+<td align="right">2.73</td>
+</tr>
+<tr>
+<td>Dasoguz</td>
+<td align="right">0</td>
+<td>TM</td>
+<td>4/11/2018 6:00</td>
+<td align="right">28</td>
+<td align="right">41.84</td>
+<td align="right">59.97</td>
+<td align="right">59</td>
+<td align="right">16.11</td>
+</tr>
+<tr>
+<td>Tougan</td>
+<td align="right">0</td>
+<td>BF</td>
+<td>4/11/2018 6:54</td>
+<td align="right">67</td>
+<td align="right">13.07</td>
+<td align="right">-3.07</td>
+<td align="right">77.51</td>
+<td align="right">7.76</td>
+</tr>
+<tr>
+<td>Calama</td>
+<td align="right">0</td>
+<td>CL</td>
+<td>4/11/2018 6:00</td>
+<td align="right">90</td>
+<td align="right">-22.46</td>
+<td align="right">-68.93</td>
+<td align="right">42.8</td>
+<td align="right">11.41</td>
+</tr>
+<tr>
+<td>Mogadishu</td>
+<td align="right">75</td>
+<td>SO</td>
+<td>4/11/2018 6:00</td>
+<td align="right">83</td>
+<td align="right">2.04</td>
+<td align="right">45.34</td>
+<td align="right">84.2</td>
+<td align="right">5.64</td>
+</tr>
+<tr>
+<td>Cap Malheureux</td>
+<td align="right">20</td>
+<td>MU</td>
+<td>4/11/2018 6:00</td>
+<td align="right">66</td>
+<td align="right">-19.98</td>
+<td align="right">57.61</td>
+<td align="right">84.2</td>
+<td align="right">3.36</td>
+</tr>
+</tbody></table>
+</HTML>
